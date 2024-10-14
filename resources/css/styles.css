@@ -1,0 +1,22 @@
+body {
+    background-color: #f8f9fa;
+  }
+  
+  .card {
+    border-radius: 10px;
+  }
+  
+  img {
+    max-width: 80%;
+  }
+  
+  a {
+    font-size: 0.9em;
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      margin: 10px;
+    }
+  }
+  
