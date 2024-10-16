@@ -1,66 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Psicología</title>
-    <link rel="stylesheet" href="app.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Principal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="stylesHome.css">
+  {{-- <link rel="stylesheet" href="{!! asset('css/stylesHome.css') !!}">
+  <link rel="stylesheet" href="{{asset('./../css/styles.css')}}"> --}}
+
+  
 </head>
 <body>
-    <div class="container">
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-          <div class="col-md-3 mb-2 mb-md-0">
-            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-              <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
-            </a>
-          </div>
-    
-          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-            <li><a href="#" class="nav-link px-2">Features</a></li>
-            <li><a href="#" class="nav-link px-2">Pricing</a></li>
-            <li><a href="#" class="nav-link px-2">FAQs</a></li>
-            <li><a href="#" class="nav-link px-2">About</a></li>
-          </ul>
-    
-          <div class="col-md-3 text-end">
-            <button type="button" class="btn btn-outline-primary me-2">Login</button>
-            <button type="button" class="btn btn-primary">Sign-up</button>
-          </div>
-        </header>
+  <!-- Barra lateral -->
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1">INICIO</span>
+      <span class="navbar-text text-white">Mayra Salazar García</span>
+    </div>
+  </nav>
+  
+  <div class="container-fluid">
+    <div class="row">
+
+      <!-- Sidebar -->
+      <div class="col-md-2 bg-dark vh-100">
+        <ul class="nav flex-column text-white">
+          <li class="nav-item p-3"><i class="bi bi-house"></i> Inicio</li>
+          <li class="nav-item p-3"><i class="bi bi-house"></i> Tests</li>
+          <li class="nav-item p-3"><i class="bi bi-person"></i> Pacientes</li>
+          <li class="nav-item p-3"><i class="bi bi-people"></i> Usuarios</li>
+          <li class="nav-item p-3"><i class="bi bi-calendar"></i> Calendario de Eventos</li>
+          <li class="nav-item p-3"><i class="bi bi-card-text"></i> Notas</li>
+          <li class="nav-item p-3"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</li>
+        </ul>
       </div>
 
-      <div class="container col-xl-10 col-xxl-8 px-4 py-5">
-        <div class="row align-items-center g-lg-5 py-5">
-          <div class="col-lg-7 text-center text-lg-start">
-            <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Formulario de registro de héroe centrado</h1>
-            <p class="col-lg-10 fs-4">Ejemplo.</p>
+      <!-- Contenido principal -->
+      <div class="col-md-10 bg-light p-4">
+        <div class="row mb-4">
+          <!-- Tarjeta Pacientes -->
+          <div class="col-md-3">
+            <div class="card text-center shadow-lg">
+              <div class="card-body">
+                <h5 class="card-title">PACIENTES</h5>
+                <p><strong></strong></p>
+                <a href="#" class="btn btn-info">Más detalles</a>
+              </div>
+            </div>
           </div>
-          <div class="col-md-10 mx-auto col-lg-5">
-            <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
-              <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
+          <!-- Tarjeta Usuarios -->
+          <div class="col-md-3">
+            <div class="card text-center shadow-lg">
+              <div class="card-body">
+                <h5 class="card-title">USUARIOS</h5>
+                <p><strong></strong></p>
+                <a href="#" class="btn btn-info">Más detalles</a>
               </div>
-              <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
+            </div>
+          </div>
+          <!-- Eventos del Día -->
+          <div class="col-md-6">
+            <div class="card shadow-lg">
+              <div class="card-body">
+                <h5 class="card-title">EVENTOS EL DÍA DE HOY</h5>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Título</th>
+                      <th>Descripción</th>
+                      <th>Hora</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td colspan="3">No hay eventos el día de hoy</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <div class="checkbox mb-3">
-                <label>
-                  <input type="checkbox" value="remember-me"> Remember me
-                </label>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Notas y últimos eventos -->
+        <div class="row">
+          <!-- Notas -->
+          <div class="col-md-6">
+            <div class="card shadow-lg">
+              <div class="card-body">
+                <h5 class="card-title">NOTAS</h5>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Título</th>
+                      <th>Descripción</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td colspan="2">No hay eventos el día de hoy</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
-              <hr class="my-4">
-              <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
-            </form>
+              <div class="text-end p-2">
+                <a href="#" class="btn btn-info">Más detalles</a>
+              </div>
+            </div>
+          </div>
+          <!-- Últimos 3 eventos -->
+          <div class="col-md-6">
+            <div class="card shadow-lg">
+              <div class="card-body">
+                <h5 class="card-title">ÚLTIMOS 3 EVENTOS</h5>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Título</th>
+                      <th>Descripción</th>
+                      <th>Fecha</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td colspan="3">No hay eventos</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
