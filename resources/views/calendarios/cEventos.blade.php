@@ -18,7 +18,7 @@
       <span class="navbar-text text-white">Mayra Salazar García | <a href="#" class="text-warning">Cerrar</a></span>
     </div>
   </nav>
-  
+
   <!-- Sidebar -->
   <div class="col-md-2 bg-dark vh-100">
     <ul class="nav flex-column text-white">
