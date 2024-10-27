@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calendario de Eventos</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('assets/css/stylesCalendario.css') }}">
+  <!-- <link rel="stylesheet" href="{{ asset('assets/css/stylesCalendario.css') }}"> -->
 </head>
 <body>
   <!-- Barra superior -->
@@ -19,7 +19,7 @@
   <div class="container-fluid">
     <div class="row">
       <!-- Sidebar -->
-      <div class="col-md-2 bg-dark vh-100">
+      <div class="col-md-2 bg-dark">
         <ul class="nav flex-column text-white">
           <li class="nav-item p-3"><a href="#" class="links_Listas">Inicio</a><i class="bi bi-house"></i></li>
           <li class="nav-item p-3"><a href="#" class="links_Listas">Tests</a><i class="bi bi-house"></i></li>
@@ -35,12 +35,57 @@
       <div class="col-md-10 bg-light p-4">
         <div class="row justify-content-center">
           <!-- Calendario de Consultas -->
-          <div class="col-md-5">
+          <div class="col-md-5 py-2">
             <div class="card text-center shadow-lg">
               <div class="card-body">
-                <img src="https://www.gstatic.com/images/branding/product/1x/calendar_2020q4_48dp.png" alt="Icono Calendario" class="mb-3">
-                <h5 class="card-title">CALENDARIO DE EVENTOS</h5>
-                <p>Gestión sobre las consultas médicas. Consulta horarios y detalles de tus próximas visitas.</p>
+                <img src="" alt="" class="mb-3">
+                <h5 class="card-title">Test 1</h5>
+                <p>Descripción.</p>
+                <a href="#" class="btn btn-info">Continuar</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Calendario Personal -->
+          <div class="col-md-5 py-2">
+            <div class="card text-center shadow-lg">
+              <div class="card-body">
+                <img src="" alt="" class="mb-3">
+                <h5 class="card-title">Test 2</h5>
+                <p>Descripción.</p>
+                <a href="#" class="btn btn-info">Continuar</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-5 py-2">
+            <div class="card text-center shadow-lg">
+              <div class="card-body">
+                <img src="" alt="" class="mb-3">
+                <h5 class="card-title">Test 3</h5>
+                <p>Descripción.</p>
+                <a href="#" class="btn btn-info">Continuar</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-5 py-2">
+            <div class="card text-center shadow-lg">
+              <div class="card-body">
+                <img src="" alt="" class="mb-3">
+                <h5 class="card-title">Test 4</h5>
+                <p>Descripción.</p>
+                <a href="#" class="btn btn-info">Continuar</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-5 py-2">
+            <div class="card text-center shadow-lg">
+              <div class="card-body">
+                <img src="" alt="" class="mb-3">
+                <h5 class="card-title">Test 5</h5>
+                <p>Descripción.</p>
                 <a href="#" class="btn btn-info">Continuar</a>
               </div>
             </div>

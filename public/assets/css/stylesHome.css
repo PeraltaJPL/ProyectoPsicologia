@@ -51,4 +51,7 @@ body {
     height: 100vh;
   }
   
-  
+  .links_Listas{
+    text-decoration: none;
+    color: white;
+  }

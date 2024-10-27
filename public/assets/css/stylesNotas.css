@@ -19,4 +19,8 @@ body {
     background-color: #007bff;
     color: white;
   }
-  
+
+  .links_Listas{
+    text-decoration: none;
+    color: white;
+  }

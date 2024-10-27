@@ -18,3 +18,8 @@ body {
 .fc-event {
   font-size: 14px;
 }
+
+.links_Listas{
+  text-decoration: none;
+  color: white;
+}

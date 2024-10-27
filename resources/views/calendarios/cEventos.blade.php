@@ -22,13 +22,13 @@
   <!-- Sidebar -->
   <div class="col-md-2 bg-dark vh-100">
     <ul class="nav flex-column text-white">
-      <li class="nav-item p-3"><i class="bi bi-house"></i> Inicio</li>
-      <li class="nav-item p-3"><i class="bi bi-house"></i> Tests</li>
-      <li class="nav-item p-3"><i class="bi bi-person"></i> Pacientes</li>
-      <li class="nav-item p-3"><i class="bi bi-people"></i> Usuarios</li>
-      <li class="nav-item p-3"><i class="bi bi-calendar"></i> Calendario de Eventos</li>
-      <li class="nav-item p-3"><i class="bi bi-card-text"></i> Notas</li>
-      <li class="nav-item p-3"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</li>
+      <li class="nav-item p-3"><a href="#" class="links_Listas">Inicio</a><i class="bi bi-house"></i></li>
+      <li class="nav-item p-3"><a href="#" class="links_Listas">Tests</a><i class="bi bi-house"></i></li>
+      <li class="nav-item p-3"><a href="#" class="links_Listas">Pacientes</a><i class="bi bi-person"></i></li>
+      <li class="nav-item p-3"><a href="#" class="links_Listas">Usuarios</a><i class="bi bi-people"></i></li>
+      <li class="nav-item p-3"><a href="#" class="links_Listas">Calendario de Eventos</a><i class="bi bi-calendar"></i></li>
+      <li class="nav-item p-3"><a href="#" class="links_Listas">Notas</a><i class="bi bi-card-text"></i></li>
+      <li class="nav-item p-3"><a href="#" class="links_Listas">Cerrar Sesión</a><i class="bi bi-box-arrow-right"></i></li>
     </ul>
   </div>
 
