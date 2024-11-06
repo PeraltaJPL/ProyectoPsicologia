@@ -8,19 +8,20 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- FullCalendar CSS -->
   <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../../css/estilosCalendarios/sCalendarioE.css">
+  <link rel="stylesheet" href="{{ asset('assets/css/estilosCalendarios/sCalendarioE.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/stylosVistas.css') }}">
 </head>
 <body>
   <!-- Barra superior -->
   <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
-      <span class="navbar-brand mb-0 h1">Calendario Personal</span>
+      <span class="navbar-brand mb-0 h1">Calendario de Eventos</span>
       <span class="navbar-text text-white">Mayra Salazar García | <a href="#" class="text-warning">Cerrar</a></span>
     </div>
   </nav>
 
   <!-- Sidebar -->
-  <div class="col-md-2 bg-dark vh-100">
+  <div id="sidebar" class="sidebar-collapsed col-md-2 bg-dark vh-100">
     <ul class="nav flex-column text-white">
       <li class="nav-item p-3"><a href="#" class="links_Listas">Inicio</a><i class="bi bi-house"></i></li>
       <li class="nav-item p-3"><a href="#" class="links_Listas">Tests</a><i class="bi bi-house"></i></li>
@@ -39,6 +40,7 @@
   <!-- FullCalendar and Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../../js/calEvento.js"></script>
+  <script src="{{ asset('assets/js/calEvento.js') }}"></script>
+  <script src="{{ asset('assets/js/ajustesVistas.js') }}"></script>
 </body>
 </html>

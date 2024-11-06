@@ -1,0 +1,31 @@
+  /* Sidebar contraído */
+  #sidebar.sidebar-collapsed {
+    width: 60px;
+    transition: width 0.3s;
+  }
+  
+  #sidebar.sidebar-collapsed .links_Listas {
+    display: none;
+  }
+  
+  /* Sidebar expandido */
+  #sidebar.sidebar-expanded {
+    width: 200px;
+    transition: width 0.3s;
+  }
+  
+  #sidebar .nav-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  #sidebar .nav-item i {
+    margin-right: 10px;
+    font-size: 18px;
+  }
+  
+  #sidebar .nav-item a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+  }

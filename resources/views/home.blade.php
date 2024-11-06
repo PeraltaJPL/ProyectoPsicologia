@@ -6,6 +6,7 @@
   <title>Página Principal</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('assets/css/stylesHome.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/stylosVistas.css') }}">
   
 </head>
 <body>
@@ -13,7 +14,7 @@
   <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
       <span class="navbar-brand mb-0 h1">INICIO</span>
-      <span class="navbar-text text-white">Mayra Salazar García</span>
+      <span class="navbar-text text-white"><a href="#" class="links_Listas">Mayra Salazar García</a></span>
     </div>
   </nav>
   
@@ -21,7 +22,7 @@
     <div class="row">
 
       <!-- Sidebar -->
-      <div class="col-md-2 bg-dark vh-100">
+      <div id="sidebar" class="sidebar-collapsed col-md-2 bg-dark vh-100">
         <ul class="nav flex-column text-white">
           <li class="nav-item p-3"><a href="#" class="links_Listas">Inicio</a><i class="bi bi-house"></i></li>
           <li class="nav-item p-3"><a href="#" class="links_Listas">Tests</a><i class="bi bi-house"></i></li>
@@ -53,6 +54,7 @@
                 <h5 class="card-title">USUARIOS</h5>
                 <p><strong></strong></p>
                 <a href="#" class="btn btn-info">Más detalles</a>
+
               </div>
             </div>
           </div>
@@ -134,5 +136,6 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ asset('assets/js/ajustesVistas.js') }}"></script>
 </body>
 </html>

@@ -21,6 +21,7 @@
         <div class="card p-4 shadow-lg">
           <div class="card-body text-center">
             <h1 class="h4 mb-4">Plataforma Académica ITSH</h1>
+
             <form>
               <div class="mb-3">
                 <label for="usuario" class="form-label">Usuario</label>

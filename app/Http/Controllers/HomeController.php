@@ -9,8 +9,4 @@ class HomeController extends Controller
     public function home(){
         return view('home');
     }
-
-    // public function inisioSesion(){
-    //     return view('inisioSesion');
-    // }
 }
