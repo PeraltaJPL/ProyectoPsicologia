@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Note;
 use Illuminate\Http\Request;
 
 class NotasController extends Controller
@@ -23,4 +24,10 @@ class NotasController extends Controller
     {
         return view('notas.edit', compact('id')); // Vista para editar una nota específica
     }
+
+    // public function Notas()
+    // {
+    //     $notes = Note::all();
+    //     return view('patients.index', compact('patients'));
+    // }
 }

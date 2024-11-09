@@ -27,7 +27,7 @@
           <li class="nav-item p-3"><a href="#" class="links_Listas">Inicio</a><i class="bi bi-house"></i></li>
           <li class="nav-item p-3"><a href="#" class="links_Listas">Tests</a><i class="bi bi-house"></i></li>
           <li class="nav-item p-3"><a href="#" class="links_Listas">Pacientes</a><i class="bi bi-person"></i></li>
-          <li class="nav-item p-3"><a href="#" class="links_Listas">Usuarios</a><i class="bi bi-people"></i></li>
+          {{-- <li class="nav-item p-3"><a href="#" class="links_Listas">Usuarios</a><i class="bi bi-people"></i></li> --}}
           <li class="nav-item p-3"><a href="#" class="links_Listas">Calendario de Eventos</a><i class="bi bi-calendar"></i></li>
           <li class="nav-item p-3"><a href="#" class="links_Listas">Notas</a><i class="bi bi-card-text"></i></li>
           <li class="nav-item p-3"><a href="#" class="links_Listas">Cerrar Sesión</a><i class="bi bi-box-arrow-right"></i></li>
@@ -38,7 +38,7 @@
       <div class="col-md-10 bg-light p-4">
         <div class="row mb-4">
           <!-- Tarjeta Pacientes -->
-          <div class="col-md-3">
+          <div class="col-md-6">
             <div class="card text-center shadow-lg">
               <div class="card-body">
                 <h5 class="card-title">PACIENTES</h5>
@@ -48,7 +48,7 @@
             </div>
           </div>
           <!-- Tarjeta Usuarios -->
-          <div class="col-md-3">
+          {{-- <div class="col-md-3">
             <div class="card text-center shadow-lg">
               <div class="card-body">
                 <h5 class="card-title">USUARIOS</h5>
@@ -57,7 +57,7 @@
 
               </div>
             </div>
-          </div>
+          </div> --}}
           <!-- Eventos del Día -->
           <div class="col-md-6">
             <div class="card shadow-lg">
@@ -130,6 +130,30 @@
               </div>
             </div>
           </div>
+
+          <!-- Proximos 3 eventos -->
+          <div class="col-md-6">
+            <div class="card shadow-lg">
+              <div class="card-body">
+                <h5 class="card-title">PROXIMOS 3 EVENTOS</h5>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Título</th>
+                      <th>Descripción</th>
+                      <th>Fecha</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td colspan="3">No hay eventos</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
     </div>

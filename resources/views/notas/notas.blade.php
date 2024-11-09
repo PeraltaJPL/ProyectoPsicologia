@@ -55,12 +55,12 @@
             <tbody id="notasTable">
               <!-- Ejemplo de una fila de nota -->
               <tr>
-                <td>Reportes</td>
+                {{-- <td>Reportes</td>
                 <td>Generar reportes correspondientes</td>
                 <td>
                   <button class="btn btn-info btn-sm editarBtn">Editar</button>
                   <button class="btn btn-danger btn-sm eliminarBtn">Eliminar</button>
-                </td>
+                </td> --}}
               </tr>
             </tbody>
           </table>

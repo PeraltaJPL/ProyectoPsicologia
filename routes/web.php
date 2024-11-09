@@ -35,3 +35,11 @@ Route::get('/notas/create', [NotasController::class, 'create'])->name('notas.cre
 
 // Ruta para editar una nota específica
 Route::get('/notas/edit/{id}', [NotasController::class, 'edit'])->name('notas.edit');
+
+
+//Prueba
+// Route::get('prueba', function (){
+//     return 'Hola mundo';
+// });
+
+// Route::get('/NotasDB', [NotasController::class, 'Notas']);
