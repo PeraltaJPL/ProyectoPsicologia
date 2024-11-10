@@ -22,7 +22,7 @@ class loginController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('home'));
+        return redirect(route('Inicio.home'));
     }
 
     public function login(Request $request){

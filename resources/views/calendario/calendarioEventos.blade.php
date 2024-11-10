@@ -22,13 +22,13 @@
       <!-- Sidebar -->
       <div id="sidebar" class="sidebar-collapsed col-md-2 bg-dark vh-100">
         <ul class="nav flex-column text-white">
-          <li class="nav-item p-3"><a href="#" class="links_Listas">Inicio</a><i class="bi bi-house"></i></li>
-          <li class="nav-item p-3"><a href="#" class="links_Listas">Tests</a><i class="bi bi-house"></i></li>
+          <li class="nav-item p-3"><a href="{{route('Inicio.home')}}" class="links_Listas">Inicio</a><i class="bi bi-house"></i></li>
+          <li class="nav-item p-3"><a href="{{route('listaTests.aplicacionTest')}}" class="links_Listas">Tests</a><i class="bi bi-house"></i></li>
           <li class="nav-item p-3"><a href="#" class="links_Listas">Pacientes</a><i class="bi bi-person"></i></li>
-          <li class="nav-item p-3"><a href="#" class="links_Listas">Usuarios</a><i class="bi bi-people"></i></li>
-          <li class="nav-item p-3"><a href="#" class="links_Listas">Calendario de Eventos</a><i class="bi bi-calendar"></i></li>
-          <li class="nav-item p-3"><a href="#" class="links_Listas">Notas</a><i class="bi bi-card-text"></i></li>
-          <li class="nav-item p-3"><a href="#" class="links_Listas">Cerrar Sesión</a><i class="bi bi-box-arrow-right"></i></li>
+          {{-- <li class="nav-item p-3"><a href="#" class="links_Listas">Usuarios</a><i class="bi bi-people"></i></li> --}}
+          <li class="nav-item p-3"><a href="{{route('calendario.calendarioEventos')}}" class="links_Listas">Calendario de Eventos</a><i class="bi bi-calendar"></i></li>
+          <li class="nav-item p-3"><a href="{{route('notas.notas')}}" class="links_Listas">Notas</a><i class="bi bi-card-text"></i></li>
+          <li class="nav-item p-3"><a href="{{route('InicioSesion.inisioSesion')}}" class="links_Listas">Cerrar Sesión</a><i class="bi bi-box-arrow-right"></i></li>
         </ul>
       </div>
 
@@ -42,7 +42,7 @@
                 <img src="https://www.gstatic.com/images/branding/product/1x/calendar_2020q4_48dp.png" alt="Icono Calendario" class="mb-3">
                 <h5 class="card-title">CALENDARIO DE EVENTOS</h5>
                 <p>Gestión sobre las consultas médicas. Consulta horarios y detalles de tus próximas visitas.</p>
-                <a href="#" class="btn btn-info">Continuar</a>
+                <a href="{{route('calendario.cEventos')}}" class="btn btn-info">Continuar</a>
               </div>
             </div>
           </div>
