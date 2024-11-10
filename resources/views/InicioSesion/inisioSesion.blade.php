@@ -34,7 +34,7 @@
                 <label for="password" class="form-label">Contraseña</label>
                 <input type="password" name="password" class="form-control text-center" id="password" placeholder="********">
               </div>
-              <a href="{{route('Inicio.home')}}" class="btn btn-success"> Entrar</a>
+              <a href="{{route('Inicio.home')}}" type="submit" class="btn btn-success">Entrar</a>
             </form>
             <div class="mt-3">
               <a href="#" class="text-muted">Olvidé mi contraseña</a>
