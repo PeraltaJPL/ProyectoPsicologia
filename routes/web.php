@@ -3,7 +3,9 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [HomeController::class, 'home']);
+// Route::get('/home', [HomeController::class, 'home'])->name('Inicio.home');
+// Ruta predeterminada personalizada
+Route::get('/', [HomeController::class, 'home'])->name('Inicio.home');
 
 //Rutas para el INCIO DE SESION
 use App\Http\Controllers\SesionController;
@@ -35,3 +37,22 @@ Route::get('/notas/create', [NotasController::class, 'create'])->name('notas.cre
 
 // Ruta para editar una nota específica
 Route::get('/notas/edit/{id}', [NotasController::class, 'edit'])->name('notas.edit');
+
+
+//Prueba
+// Route::get('prueba', function (){
+//     return 'Hola mundo';
+// });
+
+// Route::get('/NotasDB', [NotasController::class, 'Notas']);
+
+
+// use App\Http\Controllers\PacientesController;
+
+// Route::resource('/pacientes', PacientesController::class);
+
+
+use App\Http\Controllers\PacientesController;
+
+Route::get('/pacientes/crear', [PacientesController::class, 'create'])->name('pacientes.create');
+Route::resource('/pacientes', PacientesController::class)->except(['create']);

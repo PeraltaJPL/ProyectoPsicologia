@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name', 100);
+            $table->string('username', 50)->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password', 255);
             $table->rememberToken();
             $table->timestamps();
+            $table->enum('role', ['psychologist', 'administrator'])->default('psychologist');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
@@ -34,6 +36,8 @@ return new class extends Migration
             $table->text('user_agent')->nullable();
             $table->longText('payload');
             $table->integer('last_activity')->index();
+            $table->timestamp('startDate')->useCurrent();
+            $table->timestamp('endDate')->nullable();
         });
     }
 
