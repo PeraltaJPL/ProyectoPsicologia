@@ -44,7 +44,7 @@
               <div class="card-body">
                 <h5 class="card-title">PACIENTES <i class="bi bi-person"></i></h5>
                 <p><strong></strong></p>
-                <a href="#" class="btn btn-info">Más detalles</a>
+                <a href="{{route('pacientes.index')}}" class="btn btn-info">Más detalles</a>
               </div>
             </div>
           </div>

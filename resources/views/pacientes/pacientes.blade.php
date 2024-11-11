@@ -23,9 +23,9 @@
 
             <div id="sidebar" class="sidebar sidebar-collapsed col-md-2 bg-dark vh-100">
                 <ul class="nav flex-column text-white">
-                  <li class="nav-item p-3 card-body bg-light bg-opacity-10 border rounded"><i class="bi bi-house"></i><a href="{{route('Inicio.home')}}" class="links_Listas"> Inicio</a></li>
+                  <li class="nav-item p-3"><i class="bi bi-house"></i><a href="{{route('Inicio.home')}}" class="links_Listas"> Inicio</a></li>
                   <li class="nav-item p-3"><i class="bi bi-journal-text"></i><a href="{{route('listaTests.aplicacionTest')}}" class="links_Listas"> Tests</a></li>
-                  <li class="nav-item p-3"><i class="bi bi-person"></i><a href="{{route('pacientes.index')}}" class="links_Listas">Pacientes </a></li>
+                  <li class="nav-item p-3 card-body bg-light bg-opacity-10 border rounded"><i class="bi bi-person"></i><a href="{{route('pacientes.index')}}" class="links_Listas">Pacientes </a></li>
                   <li class="nav-item p-3"><i class="bi bi-calendar"></i><a href="{{route('calendario.calendarioEventos')}}" class="links_Listas">Calendario de Eventos </a></li>
                   <li class="nav-item p-3"><i class="bi bi-card-text"></i><a href="{{route('notas.notas')}}" class="links_Listas">Notas </a></li>
                   <li class="nav-item p-3"><i class="bi bi-box-arrow-right"></i><a href="{{route('InicioSesion.inisioSesion')}}" class="links_Listas">Cerrar Sesión </a></li>
@@ -41,14 +41,14 @@
                 <table class="table table-bordered bg-primary bg-opacity-75 tabla_pacientes">
                     <thead>
                         <tr>
-                            <th class="">Nombre</th>
-                            <th class="tabla_pacientes">Número de Control</th>
-                            <th class="tabla_pacientes">Carrera</th>
-                            <th class="tabla_pacientes">Ciclo Escolar</th>
-                            <th class="tabla_pacientes">Acciones</th>
+                            <th>Nombre</th>
+                            <th>Número de Control</th>
+                            <th>Carrera</th>
+                            <th>Ciclo Escolar</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="bg-light">
                         @foreach($patients as $patient)
                         <tr>
                             <td>{{ $patient->name }}</td>
@@ -56,7 +56,7 @@
                             <td>{{ $patient->career }}</td>
                             <td>{{ $patient->schoolCycle }}</td>
                             <td>
-                                <button onclick="openEditModal({{ $patient->patientId }})" class="btn btn-warning btn-sm">Editar</button>
+                                <button onclick="openEditModal({{ $patient->patientId }})" class="btn btn-info btn-sm">Editar</button>
                                 <form action="{{ route('pacientes.destroy', $patient->patientId) }}" method="POST" style="display: inline-block;">
                                     @csrf
                                     @method('DELETE')
