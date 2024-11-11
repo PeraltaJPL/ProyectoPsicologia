@@ -26,7 +26,7 @@
     <ul class="nav flex-column text-white">
       <li class="nav-item p-3"><i class="bi bi-house"></i><a href="{{route('Inicio.home')}}" class="links_Listas"> Inicio</a></li>
       <li class="nav-item p-3"><i class="bi bi-journal-text"></i><a href="{{route('listaTests.aplicacionTest')}}" class="links_Listas"> Tests</a></li>
-      <li class="nav-item p-3"><i class="bi bi-person"></i><a href="#" class="links_Listas">Pacientes </a></li>
+      <li class="nav-item p-3"><i class="bi bi-person"></i><a href="{{route('pacientes.index')}}" class="links_Listas">Pacientes </a></li>
       {{-- <li class="nav-item p-3"><a href="#" class="links_Listas">Usuarios</a><i class="bi bi-people"></i></li> --}}
       <li class="nav-item p-3 card-body bg-light bg-opacity-10 border rounded"><i class="bi bi-calendar"></i><a href="{{route('calendario.calendarioEventos')}}" class="links_Listas">Calendario de Eventos </a></li>
       <li class="nav-item p-3"><i class="bi bi-card-text"></i><a href="{{route('notas.notas')}}" class="links_Listas">Notas </a></li>

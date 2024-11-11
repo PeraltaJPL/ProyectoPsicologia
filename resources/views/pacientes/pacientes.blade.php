@@ -6,60 +6,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pacientes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/stylesPacientes.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/stylosVistas.css') }}">
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-dark bg-gradient">
         <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">Pacientes</span>
+          <span class="navbar-brand mb-0 h1">PACIENTES</span>
+          <span class="navbar-text text-white"><a href="#" class="links_Listas"><i class="bi bi-person-circle"></i> Mayra Salazar García</a></span>
         </div>
-    </nav>
+      </nav>
 
-    <div class="container mt-5">
-        <button onclick="openCreateModal()" class="btn btn-primary mb-3">
-            <i class="bi bi-plus-circle"></i> Crear Paciente
-        </button>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Número de Control</th>
-                    <th>Carrera</th>
-                    <th>Ciclo Escolar</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($patients as $patient)
-                <tr>
-                    <td>{{ $patient->name }}</td>
-                    <td>{{ $patient->controlNumber }}</td>
-                    <td>{{ $patient->career }}</td>
-                    <td>{{ $patient->schoolCycle }}</td>
-                    <td>
-                        <button onclick="openEditModal({{ $patient->patientId }})" class="btn btn-warning btn-sm">Editar</button>
-                        <form action="{{ route('pacientes.destroy', $patient->patientId) }}" method="POST" style="display: inline-block;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                        </form>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-{{-- Modal para mostrar los formularios crear y editar paciente --}}
-    <div class="modal fade" id="pacienteModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content" id="pacienteModalContent">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div id="sidebar" class="sidebar sidebar-collapsed col-md-2 bg-dark vh-100">
+                <ul class="nav flex-column text-white">
+                  <li class="nav-item p-3 card-body bg-light bg-opacity-10 border rounded"><i class="bi bi-house"></i><a href="{{route('Inicio.home')}}" class="links_Listas"> Inicio</a></li>
+                  <li class="nav-item p-3"><i class="bi bi-journal-text"></i><a href="{{route('listaTests.aplicacionTest')}}" class="links_Listas"> Tests</a></li>
+                  <li class="nav-item p-3"><i class="bi bi-person"></i><a href="{{route('pacientes.index')}}" class="links_Listas">Pacientes </a></li>
+                  <li class="nav-item p-3"><i class="bi bi-calendar"></i><a href="{{route('calendario.calendarioEventos')}}" class="links_Listas">Calendario de Eventos </a></li>
+                  <li class="nav-item p-3"><i class="bi bi-card-text"></i><a href="{{route('notas.notas')}}" class="links_Listas">Notas </a></li>
+                  <li class="nav-item p-3"><i class="bi bi-box-arrow-right"></i><a href="{{route('InicioSesion.inisioSesion')}}" class="links_Listas">Cerrar Sesión </a></li>
+                </ul>
+              </div>
+
+            <div class="col-md-10 p-3">
+
+              <div class="container mt-5">
+                <button onclick="openCreateModal()" class="btn btn-primary mb-3">
+                    <i class="bi bi-plus-circle"></i> Crear Paciente
+                </button>
+                <table class="table table-bordered bg-primary bg-opacity-75 tabla_pacientes">
+                    <thead>
+                        <tr>
+                            <th class="">Nombre</th>
+                            <th class="tabla_pacientes">Número de Control</th>
+                            <th class="tabla_pacientes">Carrera</th>
+                            <th class="tabla_pacientes">Ciclo Escolar</th>
+                            <th class="tabla_pacientes">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($patients as $patient)
+                        <tr>
+                            <td>{{ $patient->name }}</td>
+                            <td>{{ $patient->controlNumber }}</td>
+                            <td>{{ $patient->career }}</td>
+                            <td>{{ $patient->schoolCycle }}</td>
+                            <td>
+                                <button onclick="openEditModal({{ $patient->patientId }})" class="btn btn-warning btn-sm">Editar</button>
+                                <form action="{{ route('pacientes.destroy', $patient->patientId) }}" method="POST" style="display: inline-block;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+    
             </div>
         </div>
     </div>
+
+            {{-- Modal para mostrar los formularios crear y editar paciente --}}
+            <div class="modal fade" id="pacienteModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content" id="pacienteModalContent">
+                    </div>
+                </div>
+            </div>
 
     {{-- Boostrap --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     {{-- Javascript --}}
     <script src="{{ asset('assets/js/pacientes.js') }}"></script>
+    <script src="{{ asset('assets/js/ajustesVistas.js') }}"></script>
 </body>
 </html>
