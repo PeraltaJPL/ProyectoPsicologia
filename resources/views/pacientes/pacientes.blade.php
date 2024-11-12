@@ -13,8 +13,12 @@
 <body>
     <nav class="navbar navbar-dark bg-dark bg-gradient">
         <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1">PACIENTES</span>
-          <span class="navbar-text text-white"><a href="#" class="links_Listas"><i class="bi bi-person-circle"></i> Mayra Salazar García</a></span>
+          <span class="navbar-brand mb-0 h1">PACIENTES ISIC</span>
+          <span class="navbar-text text-white">
+            <a href="#" class="links_Listas">
+            <i class="bi bi-person-circle"></i> Mayra Salazar García
+            </a>
+          </span>
         </div>
       </nav>
 
@@ -23,12 +27,35 @@
 
             <div id="sidebar" class="sidebar sidebar-collapsed col-md-2 bg-dark vh-100">
                 <ul class="nav flex-column text-white">
-                  <li class="nav-item p-3"><i class="bi bi-house"></i><a href="{{route('Inicio.home')}}" class="links_Listas"> Inicio</a></li>
-                  <li class="nav-item p-3"><i class="bi bi-journal-text"></i><a href="{{route('listaTests.aplicacionTest')}}" class="links_Listas"> Tests</a></li>
-                  <li class="nav-item p-3 card-body bg-light bg-opacity-10 border rounded"><i class="bi bi-person"></i><a href="{{route('pacientes.index')}}" class="links_Listas">Pacientes </a></li>
-                  <li class="nav-item p-3"><i class="bi bi-calendar"></i><a href="{{route('calendario.calendarioEventos')}}" class="links_Listas">Calendario de Eventos </a></li>
-                  <li class="nav-item p-3"><i class="bi bi-card-text"></i><a href="{{route('notas.notas')}}" class="links_Listas">Notas </a></li>
-                  <li class="nav-item p-3"><i class="bi bi-box-arrow-right"></i><a href="{{route('InicioSesion.inisioSesion')}}" class="links_Listas">Cerrar Sesión </a></li>
+                    <li class="nav-item p-3">
+                        <a href="{{route('Inicio.home')}}" class="links_Listas">
+                        <i class="bi bi-house"></i> Inicio
+                      </a>
+                      </li>
+                      <li class="nav-item p-3">
+                        <a href="{{route('listaTests.aplicacionTest')}}" class="links_Listas">
+                          <i class="bi bi-journal-text"></i> Tests
+                        </a>
+                      </li>
+                      <li class="nav-item p-3 card-body bg-light bg-opacity-10 border rounded">
+                        <a href="{{route('pacientes.grupos')}}" class="links_Listas">
+                          <i class="bi bi-person"></i> Pacientes
+                        </a>
+                      </li>
+                      <li class="nav-item p-3">
+                        <a href="{{route('calendario.calendarioEventos')}}" class="links_Listas">
+                          <i class="bi bi-calendar"></i> Calendario de Eventos
+                        </a>
+                      </li>
+                      <li class="nav-item p-3">
+                        <a href="{{route('notas.notas')}}" class="links_Listas">
+                          <i class="bi bi-card-text"></i> Notas</a>
+                      </li>
+                      <li class="nav-item p-3">
+                        <a href="{{route('InicioSesion.inisioSesion')}}" class="links_Listas">
+                          <i class="bi bi-box-arrow-right"></i>Cerrar Sesión 
+                        </a>
+                      </li>
                 </ul>
               </div>
 
@@ -56,7 +83,7 @@
                             <td>{{ $patient->career }}</td>
                             <td>{{ $patient->schoolCycle }}</td>
                             <td>
-                                <button onclick="openEditModal({{ $patient->patientId }})" class="btn btn-info btn-sm">Editar</button>
+                                <button onclick="openEditModal({{ $patient->patientId }})" class="btn btn-warning btn-sm">Editar</button>
                                 <form action="{{ route('pacientes.destroy', $patient->patientId) }}" method="POST" style="display: inline-block;">
                                     @csrf
                                     @method('DELETE')

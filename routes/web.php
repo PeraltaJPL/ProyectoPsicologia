@@ -30,29 +30,25 @@ Route::get('/calendario/eventos', [CalendarioController::class, 'eventos'])->nam
 use App\Http\Controllers\NotasController;
 
 // Ruta para la vista principal de notas
-Route::get('/notas', [NotasController::class, 'index'])->name('notas.notas');
+Route::get('/notas', [NotasController::class, 'index'])->name('notas.notas'); 
 
 // Ruta para crear una nueva nota
-Route::get('/notas/create', [NotasController::class, 'create'])->name('notas.create');
+// Route::get('/notas/create', [NotasController::class, 'create'])->name('notas.create');
 
 // Ruta para editar una nota específica
-Route::get('/notas/edit/{id}', [NotasController::class, 'edit'])->name('notas.edit');
-
+// Route::get('/notas/edit/{id}', [NotasController::class, 'edit'])->name('notas.edit');
 
 //Prueba
 // Route::get('prueba', function (){
 //     return 'Hola mundo';
 // });
 
-// Route::get('/NotasDB', [NotasController::class, 'Notas']);
-
-
-// use App\Http\Controllers\PacientesController;
-
-// Route::resource('/pacientes', PacientesController::class);
-
-
 use App\Http\Controllers\PacientesController;
 
 Route::get('/pacientes/crear', [PacientesController::class, 'create'])->name('pacientes.create');
 Route::resource('/pacientes', PacientesController::class)->except(['create']);
+
+
+//Ruta para la lista de grupos
+use App\Http\Controllers\GruposController;
+Route::get('/grupos', [GruposController::class, 'GruposL'])->name('pacientes.grupos');

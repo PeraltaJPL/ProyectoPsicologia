@@ -1,18 +1,18 @@
   /* Sidebar contraído */
-  #sidebar.sidebar-collapsed {
+  /* #sidebar.sidebar-collapsed {
     width: 60px;
     transition: width 0.3s;
   }
   
   #sidebar.sidebar-collapsed .links_Listas {
     display: none;
-  }
+  } */
   
   /* Sidebar expandido */
-  #sidebar.sidebar-expanded {
+  /* #sidebar.sidebar-expanded {
     width: 200px;
     transition: width 0.3s;
-  }
+  } */
   
   /* Alinear los iconos y texto a la izquierda */
   #sidebar .nav-item {
@@ -43,16 +43,15 @@
     color: #007bff; /* Color de los iconos y texto cuando el cursor pasa por encima */
   }
 
-  /*---------------------------------------------------------------------------------------*/
   /* Estilos generales del sidebar */
   .sidebar {
     transition: width 0.3s;
     overflow: hidden;
   }
 
-  .sidebar-collapsed {
-    width: 60px; /* Ancho cuando está contraído */
-  }
+  /* .sidebar-collapsed {
+    width: 60px; Ancho cuando está contraído 
+  } */
 
   .sidebar-expanded {
     width: 200px; /* Ancho cuando está expandido */
@@ -74,9 +73,10 @@
     text-align: start;
     width: 100%;
     margin-bottom: 5px;
-    text-decoration: none;
+    
   }
 
-  /* .tabla_pacientes{
-    width: 130px !important;
-  } */
+  .links_Listas{
+    text-decoration: none;
+    color: #ffffff;
+  }
