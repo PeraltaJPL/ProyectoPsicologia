@@ -19,15 +19,35 @@ class NotasController extends Controller
         return view('notas.create'); // Vista para el formulario de creación de nota
     }
 
-    // Función para editar una nota
-    public function edit($id)
-    {
-        return view('notas.edit', compact('id')); // Vista para editar una nota específica
+    public function store(Request $request){
+        $item = new Note();
+        $item-> title = $request -> title;
+        $item-> description = $request -> description;
+        $item->save();
+        return to_route('Inicio.home');
     }
 
-    // public function Notas()
-    // {
-    //     $notes = Note::all();
-    //     return view('patients.index', compact('patients'));
-    // }
+    // Función para editar una nota
+    public function edit($noteId)
+    {
+        $item = Note::find($noteId);
+        return view('notas.edit', compact('item')); // Vista para editar una nota específica
+    }
+
+    public function update(Request $request, string $noteId)
+    {
+        $item = Note::find($noteId);
+        $item->title = $request->title;
+        $item-> description = $request -> description;
+        $item->save();
+        return to_route('Inicio.home');
+
+    }
+
+    public function destroy(string $noteId)
+    {
+        $item = Note::find($noteId);
+        $item->delete();
+        return to_route('Inicio.home');
+    }
 }

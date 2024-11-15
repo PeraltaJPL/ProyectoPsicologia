@@ -63,61 +63,24 @@
 
       <!-- Contenido principal -->
       <div class="col-md-10 p-3">
-
+        <h2>Modificar nota</h2>
         <div class="container mt-5">
-          <!-- Botón para agregar nota -->
-          <button id="agregarNotaBtn" class="btn btn-primary mb-3">
-            <i class="bi bi-plus-circle"></i> Agregar Nota
-          </button>
-
-          <!-- Tabla de notas -->
-          <table class="table table-bordered bg-primary bg-opacity-75">
-            <thead>
-              <tr>
-                <th>Título</th>
-                <th>Descripción</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody id="notasTable" class="bg-light">
-              <!-- Ejemplo de una fila de nota -->
-              <tr>
-                
-              </tr>
-            </tbody>
-          </table>
+          <form action="{{route('update', $item->noteId)}}" method="post">
+            @csrf
+            @method('PUT')
+            <label for="name">Agregar titulo de la nota</label>
+            <input type="text" name="title" id="title" class="form-control" required value="{{$item->title}}">
+            <label for="name">Agrega la descripcion de la nota</label>
+            <input type="text" name="description" id="description" class="form-control" required value="{{$item->description}}">
+            <button class="btn btn-warning mt-3"><i class="bi bi-plus-circle"></i> Actualizar</button>
+            <a href="{{route('Inicio.home')}}" class="btn btn-secondary mt-3">Cancelar</a>
+          </form>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Modal para agregar/editar nota -->
-  <div class="modal fade" id="notaModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalLabel">Agregar Nota</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          {{-- <form id="notaForm"> --}}
-            <div class="mb-3">
-              <label for="titulo" class="form-label">Título</label>
-              <input type="text" class="form-control" id="titulo" required>
-            </div>
-            <div class="mb-3">
-              <label for="descripcion" class="form-label">Descripción</label>
-              <textarea class="form-control" id="descripcion" rows="3" required></textarea>
-            </div>
-          {{-- </form> --}}
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" id="guardarNotaBtn">Guardar Nota</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

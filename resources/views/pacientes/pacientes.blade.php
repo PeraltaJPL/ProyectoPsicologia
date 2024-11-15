@@ -60,7 +60,7 @@
               </div>
 
             <div class="col-md-10 p-3">
-
+              <h2>ISIC</h2
               <div class="container mt-5">
                 <button onclick="openCreateModal()" class="btn btn-primary mb-3">
                     <i class="bi bi-plus-circle"></i> Crear Paciente
