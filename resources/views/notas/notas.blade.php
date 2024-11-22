@@ -45,7 +45,7 @@
             </a>
           </li>
           <li class="nav-item p-3">
-            <a href="{{route('calendario.calendarioEventos')}}" class="links_Listas">
+            <a href="{{route('calendario.index')}}" class="links_Listas">
               <i class="bi bi-calendar"></i> Calendario de Eventos
             </a>
           </li>

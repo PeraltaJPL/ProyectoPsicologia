@@ -4,7 +4,9 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 // Route::get('/home', [HomeController::class, 'home'])->name('Inicio.home');
 // Ruta predeterminada personalizada
-Route::get('/', [HomeController::class, 'home'])->name('Inicio.home');
+// Route::get('/', [HomeController::class, 'home'])->name('Inicio.home');
+Route::get('/home', [HomeController::class, 'home'])->name('Inicio.home');
+
 
 //Rutas para el INCIO DE SESION
 use App\Http\Controllers\SesionController;
@@ -21,6 +23,16 @@ use App\Http\Controllers\CalendarioController;
 Route::get('/calendario', [CalendarioController::class, 'index'])->name('calendario.calendarioEventos');
 // Ruta para la vista del calendario
 Route::get('/calendario/eventos', [CalendarioController::class, 'eventos'])->name('calendario.cEventos');
+
+
+use App\Http\Controllers\FullCalendarController;
+Route::controller(FullCalendarController::class)->group(function(){
+    Route::get('calendario', 'index')->name('calendario.index');    
+    Route::get('events', 'events')->name('fullcalendar.events');
+    Route::post('events/add', 'add')->name('fullcalendar.events.add');
+    Route::put('events/update', 'update')->name('fullcalendar.events.update');
+    Route::delete('events/destroy', 'destroy')->name('fullcalendar.events.destroy');    
+});
 
 
 //Rutas para NOTAS

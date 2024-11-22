@@ -43,12 +43,12 @@
                         </a>
                       </li>
                       <li class="nav-item p-3">
-                        <a href="{{route('calendario.calendarioEventos')}}" class="links_Listas">
+                        <a href="{{route('calendario.index')}}" class="links_Listas">
                           <i class="bi bi-calendar"></i> Calendario de Eventos
                         </a>
                       </li>
                       <li class="nav-item p-3">
-                        <a href="{{route('notas.notas')}}" class="links_Listas">
+                        <a href="{{route('notas.create')}}" class="links_Listas">
                           <i class="bi bi-card-text"></i> Notas</a>
                       </li>
                       <li class="nav-item p-3">

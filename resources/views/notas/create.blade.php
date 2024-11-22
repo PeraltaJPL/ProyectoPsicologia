@@ -45,7 +45,7 @@
             </a>
           </li>
           <li class="nav-item p-3">
-            <a href="{{route('calendario.calendarioEventos')}}" class="links_Listas">
+            <a href="{{route('calendario.index')}}" class="links_Listas">
               <i class="bi bi-calendar"></i> Calendario de Eventos
             </a>
           </li>
@@ -61,9 +61,9 @@
         </ul>
       </div>
 
-      <!-- Contenido principal -->
+      <!-- Apartado de Agregar Nota -->
       <div class="col-md-10 p-3">
-        <h2>Detalles</h2>
+        <h2>Agregar nota</h2>
         <div class="container mt-5">
           <form action="{{route('store')}}" method="post">
             @csrf
@@ -79,8 +79,6 @@
       </div>
     </div>
   </div>
-
-  
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

@@ -46,12 +46,12 @@
             </a>
           </li>
           <li class="nav-item p-3">
-            <a href="{{route('calendario.calendarioEventos')}}" class="links_Listas">
+            <a href="{{route('calendario.index')}}" class="links_Listas">
               <i class="bi bi-calendar"></i> Calendario de Eventos
             </a>
           </li>
           <li class="nav-item p-3">
-            <a href="{{route('notas.notas')}}" class="links_Listas">
+            <a href="{{route('notas.create')}}" class="links_Listas">
               <i class="bi bi-card-text"></i> Notas</a>
           </li>
           <li class="nav-item p-3">
@@ -84,14 +84,21 @@
                   <thead class="bg-primary bg-opacity-75">
                     <tr>
                       <th>Título</th>
-                      <th>Descripción</th>
-                      <th>Hora</th>
+                      {{-- <th>Descripción</th> --}}
+                      {{-- <th>Hora</th> --}}
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td colspan="3">No hay eventos el día de hoy</td>
-                    </tr>
+                    @forelse ($todayEvents as $event)
+                      <tr>
+                        <td>{{ $event->title }}</td>
+                        {{-- <td>{{ \Carbon\Carbon::parse($event->start)->format('H:i') }}</td> --}}
+                      </tr>
+                    @empty
+                      <tr>
+                        <td colspan="1">No hay eventos el día de hoy</td>
+                      </tr>
+                    @endforelse
                   </tbody>
                 </table>
               </div>
@@ -139,7 +146,7 @@
                     </tr>
                     @empty
                         <tr>
-                          <td>No hay notas</td>
+                          <td colspan="3">No hay notas</td>
                         </tr>
                     @endforelse
                   </tbody>
@@ -168,14 +175,21 @@
                   <thead class="bg-primary bg-opacity-75">
                     <tr>
                       <th>Título</th>
-                      <th>Descripción</th>
+                      {{-- <th>Descripción</th> --}}
                       <th>Fecha</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td colspan="3">No hay eventos</td>
-                    </tr>
+                    @forelse ($lastThreeEvents as $event)
+                      <tr>
+                        <td>{{ $event->title }}</td>
+                        <td>{{ \Carbon\Carbon::parse($event->start)->format('d-m-Y') }}</td>
+                      </tr>
+                    @empty
+                      <tr>
+                        <td colspan="2">No hay eventos recientes</td>
+                      </tr>
+                    @endforelse
                   </tbody>
                 </table>
               </div>
@@ -193,14 +207,20 @@
                   <thead class="bg-primary bg-opacity-75">
                     <tr>
                       <th>Título</th>
-                      <th>Descripción</th>
                       <th>Fecha</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td colspan="3">No hay eventos</td>
-                    </tr>
+                    @forelse ($nextThreeEvents as $event)
+                      <tr>
+                        <td>{{ $event->title }}</td>
+                        <td>{{ \Carbon\Carbon::parse($event->start)->format('d-m-Y') }}</td>
+                      </tr>
+                    @empty
+                      <tr>
+                        <td colspan="2">No hay próximos eventos</td>
+                      </tr>
+                    @endforelse
                   </tbody>
                 </table>
               </div>

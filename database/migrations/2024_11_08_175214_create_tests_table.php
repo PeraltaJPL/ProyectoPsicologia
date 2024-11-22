@@ -13,6 +13,7 @@ class CreateTestsTable extends Migration
             $table->string('name', 100);
             $table->text('description');
             $table->text('guide')->nullable();
+            $table->timestamps();
         });
     }
 

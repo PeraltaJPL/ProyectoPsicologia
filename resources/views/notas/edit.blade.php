@@ -45,7 +45,7 @@
             </a>
           </li>
           <li class="nav-item p-3">
-            <a href="{{route('calendario.calendarioEventos')}}" class="links_Listas">
+            <a href="{{route('calendario.index')}}" class="links_Listas">
               <i class="bi bi-calendar"></i> Calendario de Eventos
             </a>
           </li>
@@ -61,7 +61,7 @@
         </ul>
       </div>
 
-      <!-- Contenido principal -->
+      <!-- Apartado de Editar Nota -->
       <div class="col-md-10 p-3">
         <h2>Modificar nota</h2>
         <div class="container mt-5">

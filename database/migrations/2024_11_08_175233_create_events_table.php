@@ -12,10 +12,9 @@ class CreateEventsTable extends Migration
             $table->bigIncrements('eventId');
             $table->string('title', 100);
             $table->text('description')->nullable();
-            $table->date('eventDate');
-            $table->time('eventTime')->nullable();
-            // $table->unsignedBigInteger('userId');
-            // $table->foreign('userId')->references('userId')->on('users');
+            $table->date('start'); 
+            $table->date('end'); 
+            $table->timestamps(); 
         });
     }
 
@@ -23,4 +22,4 @@ class CreateEventsTable extends Migration
     {
         Schema::dropIfExists('events');
     }
-};
+}
