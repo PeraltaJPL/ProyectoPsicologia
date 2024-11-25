@@ -46,11 +46,53 @@ Route::put('/update/{noteId}', [NotasController::class, 'update'])->name('update
 Route::delete('/destroy/{noteId}', [NotasController::class, 'destroy'])->name('destroy');
 
 
-use App\Http\Controllers\PacientesController;
-Route::get('/pacientes/crear', [PacientesController::class, 'create'])->name('pacientes.create');
-Route::resource('/pacientes', PacientesController::class)->except(['create']);
-
-
 //Ruta para la lista de grupos
 use App\Http\Controllers\GruposController;
 Route::get('/grupos', [GruposController::class, 'GruposL'])->name('pacientes.grupos');
+
+
+
+
+// Pacientes
+use App\Http\Controllers\PacientesController;
+// Route::get('/pacientes/crear', [PacientesController::class, 'create'])->name('pacientes.create');
+// Route::resource('/pacientes', PacientesController::class)->except(['create']);
+
+// Route::get('/pacientes', [PacientesController::class, 'index'])->name('pacientes.index');
+// Route::get('/pacientes/crear', [PacientesController::class, 'create'])->name('pacientes.create');
+// Route::post('/pacientes', [PacientesController::class, 'store'])->name('pacientes.store');
+// Route::get('/pacientes/edit/{patientId}', [PacientesController::class, 'edit'])->name('pacientes.edit');
+// Route::put('/pacientes/{patientId}', [PacientesController::class, 'update'])->name('pacientes.update');
+// Route::delete('/pacientes/{patientId}', [PacientesController::class, 'destroy'])->name('pacientes.destroy');
+
+
+// Route::prefix('pacientes')->group(function () {
+//     Route::get('/', [PacientesController::class, 'index'])->name('pacientes.index');
+//     Route::get('/crear', [PacientesController::class, 'create'])->name('pacientes.create');
+//     Route::post('/', [PacientesController::class, 'store'])->name('pacientes.store');
+//     Route::get('/edit/{patientId}', [PacientesController::class, 'edit'])->name('pacientes.edit');
+//     Route::put('/{patientId}', [PacientesController::class, 'update'])->name('pacientes.update');
+//     Route::delete('/{patientId}', [PacientesController::class, 'destroy'])->name('pacientes.destroy');
+// });
+
+
+
+Route::prefix('pacientes')->group(function () {
+    // Mostrar la lista de pacientes, filtrada por carrera si el parámetro 'career' está presente
+    Route::get('/', [PacientesController::class, 'index'])->name('pacientes.index');
+
+    // Mostrar el formulario para agregar un paciente
+    Route::get('/crear', [PacientesController::class, 'create'])->name('pacientes.create');
+
+    // Guardar un nuevo paciente
+    Route::post('/', [PacientesController::class, 'store'])->name('pacientes.store');
+
+    // Mostrar el formulario para editar un paciente
+    Route::get('/edit/{patientId}', [PacientesController::class, 'edit'])->name('pacientes.edit');
+
+    // Actualizar los datos de un paciente
+    Route::put('/{patientId}', [PacientesController::class, 'update'])->name('pacientes.update');
+
+    // Eliminar un paciente
+    Route::delete('/{patientId}', [PacientesController::class, 'destroy'])->name('pacientes.destroy');
+});

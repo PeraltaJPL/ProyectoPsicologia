@@ -36,10 +36,16 @@ class NotasController extends Controller
 
     public function update(Request $request, string $noteId)
     {
+
+
+
+
+        
         $item = Note::find($noteId);
         $item->title = $request->title;
         $item-> description = $request -> description;
         $item->save();
+
         return to_route('Inicio.home');
 
     }

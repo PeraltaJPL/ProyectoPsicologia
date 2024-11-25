@@ -70,7 +70,9 @@
                 <img src="" alt="" class="mb-3">
                 <h5 class="card-title">ISIC</h5>
                 <p>Descripción.</p>
-                <a href="{{route('pacientes.index')}}" class="btn btn-info">Continuar</a>
+                <!-- <a href="{{route('pacientes.index')}}" class="btn btn-info">Continuar</a> -->
+                <a href="{{ route('pacientes.index', ['career' => 'ISIC']) }}" class="btn btn-info">Continuar</a>
+
               </div>
             </div>
           </div>
@@ -81,7 +83,9 @@
                 <img src="" alt="" class="mb-3">
                 <h5 class="card-title">IIAL</h5>
                 <p>Descripción.</p>
-                <a href="{{route('pacientes.index')}}" class="btn btn-info">Continuar</a>
+                <!-- <a href="{{route('pacientes.index')}}" class="btn btn-info">Continuar</a> -->
+                <a href="{{ route('pacientes.index', ['career' => 'IIAL']) }}" class="btn btn-info">Continuar</a>
+
               </div>
             </div>
           </div>
@@ -92,7 +96,9 @@
                 <img src="" alt="" class="mb-3">
                 <h5 class="card-title">IGEM</h5>
                 <p>Descripción.</p>
-                <a href="{{route('pacientes.index')}}" class="btn btn-info">Continuar</a>
+                <!-- <a href="{{route('pacientes.index')}}" class="btn btn-info">Continuar</a> -->
+                <a href="{{ route('pacientes.index', ['career' => 'IGEM']) }}" class="btn btn-info">Continuar</a>
+
               </div>
             </div>
           </div>
@@ -103,7 +109,9 @@
                 <img src="" alt="" class="mb-3">
                 <h5 class="card-title">IIND</h5>
                 <p>Descripción.</p>
-                <a href="{{route('pacientes.index')}}" class="btn btn-info">Continuar</a>
+                <!-- <a href="{{route('pacientes.index')}}" class="btn btn-info">Continuar</a> -->
+                <a href="{{ route('pacientes.index', ['career' => 'IIND']) }}" class="btn btn-info">Continuar</a>
+
               </div>
             </div>
           </div> 

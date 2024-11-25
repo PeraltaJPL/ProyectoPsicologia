@@ -7,63 +7,68 @@ use Illuminate\Http\Request;
 
 class PacientesController extends Controller
 {
-    // Mostrar todos los pacientes
-    public function index()
+    // Muestra la lista de pacientes de una carrera especifica
+    public function index(Request $request)
     {
-        $patients = Patient::all();
-        return view('pacientes.pacientes', compact('patients'));
+        $career = $request->query('career'); // Obtiene la carrera que se envia en la url
+        $patients = Patient::where('career', $career)->get(); // Busca los pacientes que pertenecen a esa carrera
+        return view('pacientes.pacientes', compact('patients', 'career')); // Envia los datos a la vista
     }
 
-    // Mostrar formulario para crear un nuevo paciente
-    public function create()
+    // Crear un nuevo patient
+    public function create(Request $request)
     {
-        return view('pacientes.crear');
+        $career = $request->query('career'); // Obtiene la carrera desde la url
+        return view('pacientes.crear', compact('career')); 
     }
 
-    // Guardar un nuevo paciente
+    // Guarda los datos de un nuevo paciente en la base de datos
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:100',
-            'controlNumber' => 'required|string|max:50|unique:patients',
-            'career' => 'nullable|string|max:100',
-            'schoolCycle' => 'nullable|string|max:50',
-        ]);
+        $patient = new Patient(); // Crea un nuevo paciente
+        // Se le asigna los parametros (*Nota, existe una forma de validar desde el controllador, verificar.)
+        $patient->name = $request->name; 
+        $patient->controlNumber = $request->controlNumber; 
+        $patient->career = $request->career; 
+        $patient->schoolCycle = $request->schoolCycle; 
+        $patient->save(); // Guarda el paciente en la base de datos
 
-        Patient::create($request->all());
-
-        return redirect()->route('pacientes.index')->with('success', 'Paciente creado exitosamente');
+        // Regresa a la lista de pacientes de esa carrera con un mensaje de exito
+        return redirect()->route('pacientes.index', ['career' => $patient->career])
+            ->with('success', 'Paciente registrado con exito.');
     }
 
-    // Mostrar formulario para editar un paciente existente
-    public function edit($id)
+    // Muestra un formulario para editar los datos de un paciente
+    public function edit($patientId)
     {
-        $patient = Patient::findOrFail($id);
-        return view('pacientes.edit', compact('patient'));
+        $patient = Patient::findOrFail($patientId); // Busca el paciente por su id, si no existe, muestra error
+        return view('pacientes.edit', compact('patient')); // Manda los datos del paciente a la vista
     }
 
-    // Actualizar un paciente existente
-    public function update(Request $request, $id)
+    // Actualiza los datos de un paciente en la base de datos
+    public function update(Request $request, $patientId)
     {
-        $request->validate([
-            'name' => 'required|string|max:100',
-            'controlNumber' => 'required|string|max:50|unique:patients,controlNumber,' . $id . ',patientId',
-            'career' => 'nullable|string|max:100',
-            'schoolCycle' => 'nullable|string|max:50',
-        ]);
+        $patient = Patient::find($patientId); // Busca el paciente por su id
+        $patient->name = $request->name; 
+        $patient->controlNumber = $request->controlNumber; 
+        $patient->career = $request->career; 
+        $patient->schoolCycle = $request->schoolCycle; 
+        $patient->save(); // Guarda los cambios
 
-        $patient = Patient::findOrFail($id);
-        $patient->update($request->all());
-
-        return redirect()->route('pacientes.index')->with('success', 'Paciente actualizado exitosamente');
+        // Regresa a la lista de pacientes de la carrera con un mensaje de exito
+        return redirect()->route('pacientes.index', ['career' => $patient->career])
+            ->with('success', 'Paciente actualizado con éxito.');
     }
 
-    // Eliminar un paciente
-    public function destroy($id)
+    // Elimina un paciente de la base de datos
+    public function destroy(string $patientId, Request $request)
     {
-        $patient = Patient::findOrFail($id);
-        $patient->delete();
+        $patient = Patient::findOrFail($patientId); // Busca el paciente por su id, si no existe, muestra error
+        $patient->delete(); // Elimina el paciente
 
-        return redirect()->route('pacientes.index')->with('success', 'Paciente eliminado exitosamente');
+        // Regresa a la lista de pacientes de esa carrera con un mensaje de exito
+        return redirect()
+            ->route('pacientes.index', ['career' => $request->career]) // Mantiene el filtro de carrera
+            ->with('success', 'Paciente eliminado con éxito.');
     }
 }
