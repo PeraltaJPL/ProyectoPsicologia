@@ -69,7 +69,7 @@
           <div class="col-md-6">
             <div class="card text-center shadow-lg">
               <div class="card-body">
-                <h5 class="card-title">PACIENTES <i class="bi bi-person"></i></h5>
+                <h5 class="card-title">PACIENTES <br><i class="bi bi-person"></i></h5>
                 <p><strong></strong></p>
                 <a href="{{route('pacientes.index')}}" class="btn btn-info">Más detalles</a>
               </div>

@@ -26,7 +26,7 @@
     <div class="row">
       
       <!-- Sidebar -->
-      <div id="sidebar" class="sidebar sidebar-collapsed col-md-2 bg-dark vh-100">
+      <div id="sidebar" class="sidebar sidebar-collapsed col-md-2 bg-dark">
         <ul class="nav flex-column text-white">
           <li class="nav-item p-3">
             <a href="{{route('Inicio.home')}}" class="links_Listas">
@@ -69,8 +69,11 @@
               <div class="card-body">
                 <img src="" alt="" class="mb-3">
                 <h5 class="card-title">ISIC</h5>
-                <p>Descripción.</p>
+                {{-- <p>Descripción.</p> --}}
+                <img src="{{asset('assets/images/logoISIC.png')}}" alt="Ingeniería Industrial" class="img-fluid" width="200em" height="70em">
                 <!-- <a href="{{route('pacientes.index')}}" class="btn btn-info">Continuar</a> -->
+                <br>
+                <br>
                 <a href="{{ route('pacientes.index', ['career' => 'ISIC']) }}" class="btn btn-info">Continuar</a>
 
               </div>
@@ -82,8 +85,11 @@
               <div class="card-body">
                 <img src="" alt="" class="mb-3">
                 <h5 class="card-title">IIAL</h5>
-                <p>Descripción.</p>
+                {{-- <p>Descripción.</p> --}}
+                <img src="{{asset('assets/images/logoIIAL.png')}}" alt="Ingeniería Industrial" class="img-fluid" width="167em" height="70em">
                 <!-- <a href="{{route('pacientes.index')}}" class="btn btn-info">Continuar</a> -->
+                <br>
+                <br>
                 <a href="{{ route('pacientes.index', ['career' => 'IIAL']) }}" class="btn btn-info">Continuar</a>
 
               </div>
@@ -95,10 +101,12 @@
               <div class="card-body">
                 <img src="" alt="" class="mb-3">
                 <h5 class="card-title">IGEM</h5>
-                <p>Descripción.</p>
+                {{-- <p>Descripción.</p> --}}
+                <img src="{{asset('assets/images/logoIGEM.png')}}" alt="Ingeniería Industrial" class="img-fluid" width="192em" height="70em">
                 <!-- <a href="{{route('pacientes.index')}}" class="btn btn-info">Continuar</a> -->
+                <br>
+                <br>
                 <a href="{{ route('pacientes.index', ['career' => 'IGEM']) }}" class="btn btn-info">Continuar</a>
-
               </div>
             </div>
           </div>
@@ -108,10 +116,12 @@
               <div class="card-body">
                 <img src="" alt="" class="mb-3">
                 <h5 class="card-title">IIND</h5>
-                <p>Descripción.</p>
+                {{-- <p>Descripción.</p> --}}
+                <img src="{{asset('assets/images/logo_IIND.png')}}" alt="Ingeniería Industrial" class="img-fluid" width="200em" height="70em">
                 <!-- <a href="{{route('pacientes.index')}}" class="btn btn-info">Continuar</a> -->
+                <br>
+                <br>
                 <a href="{{ route('pacientes.index', ['career' => 'IIND']) }}" class="btn btn-info">Continuar</a>
-
               </div>
             </div>
           </div> 

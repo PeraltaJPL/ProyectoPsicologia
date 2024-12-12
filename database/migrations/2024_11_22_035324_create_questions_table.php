@@ -12,6 +12,7 @@ class CreateQuestionsTable extends Migration
             $table->bigIncrements('questionId');
             $table->unsignedBigInteger('testId'); // Relación con la tabla tests
             $table->text('question_text'); // Texto de la pregunta
+            $table->enum('type', ['open', 'multiple_choice'])->default('open'); // Tipo de pregunta
             $table->timestamps();
 
             // Llave foránea

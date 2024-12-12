@@ -19,6 +19,11 @@ class Test extends Model
         'guide'
     ];
 
+    public function questions()
+    {
+        return $this->hasMany(Question::class, 'testId');
+    }
+
     // Relationship with test results
     public function testResults()
     {

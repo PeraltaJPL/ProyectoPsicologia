@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/home', [HomeController::class, 'home'])->name('Inicio.home');
 // Ruta predeterminada personalizada
 // Route::get('/', [HomeController::class, 'home'])->name('Inicio.home');
-Route::get('/home', [HomeController::class, 'home'])->name('Inicio.home');
+Route::get('/', [HomeController::class, 'home'])->name('Inicio.home');
 
 
 //Rutas para el INCIO DE SESION
@@ -13,9 +13,17 @@ use App\Http\Controllers\SesionController;
 Route::get('/InicioSesion', [SesionController::class, 'sesion'])->name('InicioSesion.inisioSesion');
 
 //Rutas para el Lista de los test
-
 use App\Http\Controllers\testsController;
 Route::get('/listaTests', [testsController::class, 'lTests'])->name('listaTests.aplicacionTest');
+
+
+//Rutas del test de Tipos de aprendizajes
+use App\Http\Controllers\TestController;
+Route::get('/tests/{id}', [TestController::class, 'show'])->name('tests.show'); // Mostrar el test
+Route::post('/tests/{id}', [TestController::class, 'submit'])->name('tests.submit'); // Enviar respuestas
+Route::get('/tests', [TestController::class, 'index'])->name('listaTests.aplicacionTest');
+Route::get('/listaTests', [TestController::class, 'index'])->name('listaTests.aplicacionTest');
+
 
 //Rutas para CALENDARIOS
 use App\Http\Controllers\CalendarioController;
