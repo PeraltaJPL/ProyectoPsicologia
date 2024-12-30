@@ -1,11 +1,14 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+// use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-// Route::get('/home', [HomeController::class, 'home'])->name('Inicio.home');
-// Ruta predeterminada personalizada
-// Route::get('/', [HomeController::class, 'home'])->name('Inicio.home');
-Route::get('/', [HomeController::class, 'home'])->name('Inicio.home');
+
+use App\Http\Controllers\loginController;
+use App\Http\Controllers\HomeController;
+
+Route::get('/', [loginController::class, 'login'])->name('login.show'); // Ruta de login
+Route::post('/login', [loginController::class, 'attempt'])->name('login.attempt'); // Autenticacion Login
+Route::get('/home', [HomeController::class, 'home'])->name('Inicio.home'); // Ruta de inicio
 
 
 //Rutas para el INCIO DE SESION
@@ -63,27 +66,6 @@ Route::get('/grupos', [GruposController::class, 'GruposL'])->name('pacientes.gru
 
 // Pacientes
 use App\Http\Controllers\PacientesController;
-// Route::get('/pacientes/crear', [PacientesController::class, 'create'])->name('pacientes.create');
-// Route::resource('/pacientes', PacientesController::class)->except(['create']);
-
-// Route::get('/pacientes', [PacientesController::class, 'index'])->name('pacientes.index');
-// Route::get('/pacientes/crear', [PacientesController::class, 'create'])->name('pacientes.create');
-// Route::post('/pacientes', [PacientesController::class, 'store'])->name('pacientes.store');
-// Route::get('/pacientes/edit/{patientId}', [PacientesController::class, 'edit'])->name('pacientes.edit');
-// Route::put('/pacientes/{patientId}', [PacientesController::class, 'update'])->name('pacientes.update');
-// Route::delete('/pacientes/{patientId}', [PacientesController::class, 'destroy'])->name('pacientes.destroy');
-
-
-// Route::prefix('pacientes')->group(function () {
-//     Route::get('/', [PacientesController::class, 'index'])->name('pacientes.index');
-//     Route::get('/crear', [PacientesController::class, 'create'])->name('pacientes.create');
-//     Route::post('/', [PacientesController::class, 'store'])->name('pacientes.store');
-//     Route::get('/edit/{patientId}', [PacientesController::class, 'edit'])->name('pacientes.edit');
-//     Route::put('/{patientId}', [PacientesController::class, 'update'])->name('pacientes.update');
-//     Route::delete('/{patientId}', [PacientesController::class, 'destroy'])->name('pacientes.destroy');
-// });
-
-
 
 Route::prefix('pacientes')->group(function () {
     // Mostrar la lista de pacientes, filtrada por carrera si el parámetro 'career' está presente

@@ -11,25 +11,43 @@ use Illuminate\Support\Facades\Auth;
 
 class loginController extends Controller
 {
-    public function register(Request $request){
-        $user = new User();
+   // Muestra la vista de login
+   public function login()
+   {
+       return view('InicioSesion.inisioSesion'); // Cambia al nombre correcto si es diferente
+   }
 
-        $user->name = $request->name;
-        $user->email= $request->email;
-        $user->password = Hash::make($request->password);
+   // Procesa el inicio de sesión
+   public function attempt(Request $request)
+   {
+       // Obtiene las credenciales del formulario
+       $credentials = $request->only('email', 'password');
 
-        $user->save();
+       // Verifica las credenciales
+       if (Auth::attempt($credentials)) {
+           // Si son correctas, redirige al home
+           $request->session()->regenerate();
+           return redirect()->route('Inicio.home');
+       }
 
-        Auth::login($user);
+       // Si no coinciden, regresa con un mensaje de error
+       return back()->withErrors([
+           'email' => 'Las credenciales no son válidas.',
+       ]);
+   }
 
-        return redirect(route('Inicio.home'));
-    }
 
-    public function login(Request $request){
-        
-    }
+    // // Muestra la vista de login
+    // public function login()
+    // {
+    //     return view('InicioSesion.inisioSesion'); // Cambia al nombre correcto si es diferente
+    // }
 
-    public function logout(Request $request){
-        
-    }
+    // // Redirige al inicio sin validación (por ahora)
+    // public function redirectToHome()
+    // {
+    //     return redirect()->route('Inicio.home');
+    // }
+
+
 }

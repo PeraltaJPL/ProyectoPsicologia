@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +10,9 @@
   <link rel="stylesheet" href="{{ asset('assets/css/stylesHome.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/stylesNotas.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/stylosVistas.css') }}">
-  
+
 </head>
+
 <body>
   <!-- Barra lateral -->
   <nav class="navbar navbar-dark bg-dark bg-gradient">
@@ -18,12 +20,12 @@
       <span class="navbar-brand mb-0 h1">INICIO</span>
       <span class="navbar-text text-white">
         <a href="#" class="links_Listas">
-        <i class="bi bi-person-circle"></i> Mayra Salazar García
+          {{ $user->username ?? $user->name ?? 'Usuario' }}
         </a>
       </span>
     </div>
   </nav>
-  
+
   <div class="container-fluid">
     <div class="row">
 
@@ -32,8 +34,8 @@
         <ul class="nav flex-column text-white">
           <li class="nav-item p-3 card-body bg-light bg-opacity-10 border rounded">
             <a href="{{route('Inicio.home')}}" class="links_Listas">
-            <i class="bi bi-house"></i> Inicio
-          </a>
+              <i class="bi bi-house"></i> Inicio
+            </a>
           </li>
           <li class="nav-item p-3">
             <a href="{{route('listaTests.aplicacionTest')}}" class="links_Listas">
@@ -56,7 +58,7 @@
           </li>
           <li class="nav-item p-3">
             <a href="{{route('InicioSesion.inisioSesion')}}" class="links_Listas">
-              <i class="bi bi-box-arrow-right"></i>Cerrar Sesión 
+              <i class="bi bi-box-arrow-right"></i>Cerrar Sesión
             </a>
           </li>
         </ul>
@@ -90,14 +92,14 @@
                   </thead>
                   <tbody>
                     @forelse ($todayEvents as $event)
-                      <tr>
-                        <td>{{ $event->title }}</td>
-                        {{-- <td>{{ \Carbon\Carbon::parse($event->start)->format('H:i') }}</td> --}}
-                      </tr>
+                    <tr>
+                      <td>{{ $event->title }}</td>
+                      {{-- <td>{{ \Carbon\Carbon::parse($event->start)->format('H:i') }}</td> --}}
+                    </tr>
                     @empty
-                      <tr>
-                        <td colspan="1">No hay eventos el día de hoy</td>
-                      </tr>
+                    <tr>
+                      <td colspan="1">No hay eventos el día de hoy</td>
+                    </tr>
                     @endforelse
                   </tbody>
                 </table>
@@ -105,7 +107,7 @@
             </div>
           </div>
         </div>
-        
+
         <!-- Notas y últimos eventos -->
         <div class="row mb-4">
           <!-- Notas -->
@@ -115,13 +117,13 @@
                 <h5 class="card-title">NOTAS <i class="bi bi-card-text"></i></h5>
                 <!-- Tabla de notas -->
                 <table class="table table-bordered bg-primary bg-opacity-75">
-                    <thead>
-                      <tr>
-                        <th>Título</th>
-                        <th>Descripción</th>
-                        <th>Acciones</th>
-                      </tr>
-                    </thead>
+                  <thead>
+                    <tr>
+                      <th>Título</th>
+                      <th>Descripción</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
                   <tbody id="notasTable" class="bg-light">
                     @forelse ($items as $item)
                     <tr>
@@ -145,9 +147,9 @@
                       {{-- <td colspan="3">No hay eventos el día de hoy</td> --}}
                     </tr>
                     @empty
-                        <tr>
-                          <td colspan="3">No hay notas</td>
-                        </tr>
+                    <tr>
+                      <td colspan="3">No hay notas</td>
+                    </tr>
                     @endforelse
                   </tbody>
                 </table>
@@ -155,9 +157,9 @@
               <div class="text-end p-2">
                 <a href="{{route('notas.create')}}" class="decoration">
                   <button class="btn btn-primary mb-3">
-                  {{-- <a href="{{route('notas.create')}}" class="btn btn-info"></a> --}}
-                    <i class="bi bi-zoom-in"></i> Agregar Nota
-                  </button>
+                    {{-- <a href="{{route('notas.create')}}" class="btn btn-info"></a> --}}
+                <i class="bi bi-zoom-in"></i> Agregar Nota
+                </button>
                 </a>
 
                 {{-- <button id="agregarNotaBtn" class="btn btn-primary mb-3">
@@ -181,14 +183,14 @@
                   </thead>
                   <tbody>
                     @forelse ($lastThreeEvents as $event)
-                      <tr>
-                        <td>{{ $event->title }}</td>
-                        <td>{{ \Carbon\Carbon::parse($event->start)->format('d-m-Y') }}</td>
-                      </tr>
+                    <tr>
+                      <td>{{ $event->title }}</td>
+                      <td>{{ \Carbon\Carbon::parse($event->start)->format('d-m-Y') }}</td>
+                    </tr>
                     @empty
-                      <tr>
-                        <td colspan="2">No hay eventos recientes</td>
-                      </tr>
+                    <tr>
+                      <td colspan="2">No hay eventos recientes</td>
+                    </tr>
                     @endforelse
                   </tbody>
                 </table>
@@ -198,7 +200,7 @@
         </div>
 
         <div class="row mb-4">
-<!-- Proximos 3 eventos -->
+          <!-- Proximos 3 eventos -->
           <div class="col-md-6">
             <div class="card text-center shadow-lg">
               <div class="card-body">
@@ -212,14 +214,14 @@
                   </thead>
                   <tbody>
                     @forelse ($nextThreeEvents as $event)
-                      <tr>
-                        <td>{{ $event->title }}</td>
-                        <td>{{ \Carbon\Carbon::parse($event->start)->format('d-m-Y') }}</td>
-                      </tr>
+                    <tr>
+                      <td>{{ $event->title }}</td>
+                      <td>{{ \Carbon\Carbon::parse($event->start)->format('d-m-Y') }}</td>
+                    </tr>
                     @empty
-                      <tr>
-                        <td colspan="2">No hay próximos eventos</td>
-                      </tr>
+                    <tr>
+                      <td colspan="2">No hay próximos eventos</td>
+                    </tr>
                     @endforelse
                   </tbody>
                 </table>
@@ -236,29 +238,29 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <form action="{{route('store')}}" method="post">
-        @csrf
-        @method('POST')
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalLabel">Agregar Nota</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="notaForm">
-            <div class="mb-3">
-              <label for="titulo" class="form-label">Título</label>
-              <input type="text" name="title" class="form-control" id="titulo" required>
-            </div>
-            <div class="mb-3">
-              <label for="descripcion" class="form-label">Descripción</label>
-              <textarea class="form-control" name="description" id="descripcion" rows="3" required></textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" id="guardarNotaBtn">Guardar Nota</button>
-        </div>
-      </form>
+          @csrf
+          @method('POST')
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Agregar Nota</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="notaForm">
+              <div class="mb-3">
+                <label for="titulo" class="form-label">Título</label>
+                <input type="text" name="title" class="form-control" id="titulo" required>
+              </div>
+              <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <textarea class="form-control" name="description" id="descripcion" rows="3" required></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" id="guardarNotaBtn">Guardar Nota</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -267,4 +269,5 @@
   <script src="{{ asset('assets/js/ajustesVistas.js') }}"></script>
   <script src="{{ asset('assets/js/notas.js') }}"></script>
 </body>
+
 </html>
