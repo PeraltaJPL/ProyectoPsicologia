@@ -23,8 +23,8 @@
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">Eventos</span>
             <span class="navbar-text text-white">
-                <a href="{{ route('perfil.perfil') }}" class="links_Listas">
-                    <i class="bi bi-person-circle"></i> Mayra Salazar García
+                <a href="#" class="links_Listas">
+                    {{ $user->username ?? $user->name ?? 'Usuario' }}
                 </a>
             </span>
         </div>

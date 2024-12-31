@@ -11,68 +11,43 @@ use Illuminate\Support\Facades\Auth;
 
 class loginController extends Controller
 {
-    public function register(Request $request){
-        $user = new User();
+   // Muestra la vista de login
+   public function login()
+   {
+       return view('InicioSesion.inisioSesion'); // Cambia al nombre correcto si es diferente
+   }
 
-        $user->name = $request->name;
-        $user->email= $request->email;
-        $user->password = Hash::make($request->password);
+   // Procesa el inicio de sesión
+   public function attempt(Request $request)
+   {
+       // Obtiene las credenciales del formulario
+       $credentials = $request->only('email', 'password');
 
-        $user->save();
+       // Verifica las credenciales
+       if (Auth::attempt($credentials)) {
+           // Si son correctas, redirige al home
+           $request->session()->regenerate();
+           return redirect()->route('Inicio.home');
+       }
 
-        Auth::login($user);
+       // Si no coinciden, regresa con un mensaje de error
+       return back()->withErrors([
+           'email' => 'Las credenciales no son válidas.',
+       ]);
+   }
 
-        return redirect(route('Inicio.home'));
-    }
 
-    public function login(Request $request){
-        // $credentials = $request->only('username', 'password');
+    // // Muestra la vista de login
+    // public function login()
+    // {
+    //     return view('InicioSesion.inisioSesion'); // Cambia al nombre correcto si es diferente
+    // }
 
-        // if (Auth::attempt($credentials)) {
-        //     // Autenticación exitosa
-        //     return redirect()->route('Inicio.home');
-        // }
+    // // Redirige al inicio sin validación (por ahora)
+    // public function redirectToHome()
+    // {
+    //     return redirect()->route('Inicio.home');
+    // }
 
-        // // Autenticación fallida
-        // return back()->withErrors([
-        //     'message' => 'Las credenciales no son correctas.',
-        // ]);
-        
-        // $credentials = $request->only('email', 'password');
 
-        // if (Auth::attempt($credentials)) {
-        //     $request->session()->regenerate();
-        // return redirect()->intended(route('Inicio.home'));
-        // }
-
-        // return back()->withErrors([
-        //     'email' => 'Las credenciales no coinciden con nuestros registros.',
-        // ]);
-
-        // Validar los datos del formulario
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
-
-        // Intentar autenticar al usuario
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect()->intended(route('Inicio.home')); // Redirigir al home
-        }
-
-        // Si falla la autenticación
-        return back()->withErrors([
-            'email' => 'Las credenciales no coinciden con nuestros registros.',
-        ]);
-    }
-
-    public function logout(Request $request){
-        Auth::logout();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return redirect(route('InicioSesion.inisioSesion'));
-    }
 }

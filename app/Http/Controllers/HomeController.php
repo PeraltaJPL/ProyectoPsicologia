@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Note;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
 class HomeController extends Controller
@@ -35,7 +36,10 @@ class HomeController extends Controller
             ->take(3)
             ->get();
 
+        // Usuario
+        $user = Auth::user();
+
         // Pasar las variables a la vista
-        return view('Inicio.home', compact('items', 'todayEvents', 'lastThreeEvents', 'nextThreeEvents'));
+        return view('Inicio.home', compact('items', 'todayEvents', 'lastThreeEvents', 'nextThreeEvents','user'));
     }
 }

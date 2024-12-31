@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,29 +10,30 @@
   <link rel="stylesheet" href="{{ asset('assets/css/stylesHome.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/stylosVistas.css') }}">
 </head>
+
 <body>
   <!-- Barra superior -->
   <nav class="navbar navbar-dark bg-dark bg-gradient">
     <div class="container-fluid">
       <span class="navbar-brand mb-0 h1">TEST</span>
       <span class="navbar-text text-white">
-        <a href="{{ route('perfil.perfil') }}" class="links_Listas">
-        <i class="bi bi-person-circle"></i> Mayra Salazar García
+        <a href="#" class="links_Listas">
+          {{ $user->username ?? $user->name ?? 'Usuario' }}
         </a>
       </span>
     </div>
   </nav>
-  
+
   <div class="container-fluid">
     <div class="row">
-      
+
       <!-- Sidebar -->
       <div id="sidebar" class="sidebar sidebar-collapsed col-md-2 bg-dark vh-100">
         <ul class="nav flex-column text-white">
           <li class="nav-item p-3">
             <a href="{{route('Inicio.home')}}" class="links_Listas">
-            <i class="bi bi-house"></i> Inicio
-          </a>
+              <i class="bi bi-house"></i> Inicio
+            </a>
           </li>
           <li class="nav-item p-3 card-body bg-light bg-opacity-10 border rounded">
             <a href="{{route('listaTests.aplicacionTest')}}" class="links_Listas">
@@ -54,7 +56,7 @@
           </li>
           <li class="nav-item p-3">
             <a href="{{route('InicioSesion.inisioSesion')}}" class="links_Listas">
-              <i class="bi bi-box-arrow-right"></i>Cerrar Sesión 
+              <i class="bi bi-box-arrow-right"></i>Cerrar Sesión
             </a>
           </li>
         </ul>
@@ -129,4 +131,5 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="{{ asset('assets/js/ajustesVistas.js') }}"></script>
 </body>
+
 </html>
