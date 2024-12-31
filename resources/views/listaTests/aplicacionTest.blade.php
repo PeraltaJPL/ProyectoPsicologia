@@ -15,7 +15,7 @@
     <div class="container-fluid">
       <span class="navbar-brand mb-0 h1">TEST</span>
       <span class="navbar-text text-white">
-        <a href="#" class="links_Listas">
+        <a href="{{ route('perfil.perfil') }}" class="links_Listas">
         <i class="bi bi-person-circle"></i> Mayra Salazar García
         </a>
       </span>
@@ -63,20 +63,20 @@
       <!-- Las listas de los diferentes tests-->
       <div class="col-md-10 bg-light p-4">
         <div class="row justify-content-center">
-          @foreach ($tests as $test)
+          {{-- @foreach ($tests as $test) --}}
           <div class="col-md-5 py-2">
             <div class="card text-center shadow-lg">
               <div class="card-body">
                 <img src="" alt="" class="mb-3">
-                {{-- <h5 class="card-title">Estilos de Aprendizaje</h5> --}}
-                <h5 class="card-title">{{ $test->name }}</h5>
+                <h5 class="card-title">Estilos de Aprendizaje</h5>
+                {{-- <h5 class="card-title">{{ $test->name }}</h5> --}}
                 <p>Descripción.</p>
-                {{-- <a href="{{route('tests.show', 1)}}" class="btn btn-info">Continuar</a> --}}
-                <a href="{{ route('tests.show', $test->testId) }}" class="btn btn-info">Continuar</a>
+                <a href="{{route('tests.show', 0)}}" class="btn btn-info">Continuar</a>
+                {{-- <a href="{{ route('tests.show', $test->testId) }}" class="btn btn-info">Continuar</a> --}}
               </div>
             </div>
           </div>
-          @endforeach
+          {{-- @endforeach --}}
 
           <div class="col-md-5 py-2">
             <div class="card text-center shadow-lg">

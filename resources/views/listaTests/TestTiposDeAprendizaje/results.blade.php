@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -22,4 +22,4 @@
 
     <a href="{{ route('tests.show', $test->testId) }}" class="btn btn-secondary">Regresar al test</a>
 </div>
-@endsection
+@endsection --}}

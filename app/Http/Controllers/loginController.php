@@ -26,10 +26,53 @@ class loginController extends Controller
     }
 
     public function login(Request $request){
+        // $credentials = $request->only('username', 'password');
+
+        // if (Auth::attempt($credentials)) {
+        //     // Autenticación exitosa
+        //     return redirect()->route('Inicio.home');
+        // }
+
+        // // Autenticación fallida
+        // return back()->withErrors([
+        //     'message' => 'Las credenciales no son correctas.',
+        // ]);
         
+        // $credentials = $request->only('email', 'password');
+
+        // if (Auth::attempt($credentials)) {
+        //     $request->session()->regenerate();
+        // return redirect()->intended(route('Inicio.home'));
+        // }
+
+        // return back()->withErrors([
+        //     'email' => 'Las credenciales no coinciden con nuestros registros.',
+        // ]);
+
+        // Validar los datos del formulario
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        // Intentar autenticar al usuario
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended(route('Inicio.home')); // Redirigir al home
+        }
+
+        // Si falla la autenticación
+        return back()->withErrors([
+            'email' => 'Las credenciales no coinciden con nuestros registros.',
+        ]);
     }
 
     public function logout(Request $request){
-        
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect(route('InicioSesion.inisioSesion'));
     }
 }

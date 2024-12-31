@@ -16,7 +16,7 @@
     <div class="container-fluid">
       <span class="navbar-brand mb-0 h1">PACIENTES {{ strtoupper($career ?? 'Todos los Grupos') }}</span>
       <span class="navbar-text text-white">
-        <a href="#" class="links_Listas">
+        <a href="{{ route('perfil.perfil') }}" class="links_Listas">
           <i class="bi bi-person-circle"></i> Mayra Salazar García
         </a>
       </span>

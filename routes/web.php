@@ -4,18 +4,37 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 // Route::get('/home', [HomeController::class, 'home'])->name('Inicio.home');
 // Ruta predeterminada personalizada
-// Route::get('/', [HomeController::class, 'home'])->name('Inicio.home');
 Route::get('/', [HomeController::class, 'home'])->name('Inicio.home');
+// Route::post('/Inicio/home', [HomeController::class, 'home'])->name('Inicio.home');
+// Route::get('/Inicio/home', [HomeController::class, 'home'])->middleware('auth')->name('Inicio.home');
+// Route::match(['get', 'post'], '/Inicio/home', [HomeController::class, 'home'])->name('Inicio.home');
+// Route::match(['get', 'post'], '/Inicio/home', [HomeController::class, 'home'])->middleware('auth')->name('Inicio.home');
 
-
-//Rutas para el INCIO DE SESION
+//Rutas para la vista de INCIO DE SESION
 use App\Http\Controllers\SesionController;
 Route::get('/InicioSesion', [SesionController::class, 'sesion'])->name('InicioSesion.inisioSesion');
+
+//Ruta para Iniciar Sesión
+use App\Http\Controllers\loginController;
+Route::post('/login', [loginController::class, 'login'])->name('login');
+Route::post('/register', [loginController::class, 'register'])->name('register');
+Route::post('/logout', [loginController::class, 'logout'])->name('logout');
+// Route::get('/login', function () {
+//     return view('InicioSesion.inisioSesion');
+// })->name('InicioSesion.inisioSesion');
+
 
 //Rutas para el Lista de los test
 use App\Http\Controllers\testsController;
 Route::get('/listaTests', [testsController::class, 'lTests'])->name('listaTests.aplicacionTest');
 
+//Ruta para la vista del Perfil
+use App\Http\Controllers\ProfileController;
+Route::get('/perfil', [ProfileController::class, 'showProfile'])->name('perfil.perfil');
+// Route::get('/perfil/editar', [ProfileController::class, 'editProfile'])->name('perfil.edit');
+// Route::get('/perfil/imagen', [ProfileController::class, 'changeImage'])->name('perfil.image');
+// Route::post('/perfil/actualizar', [ProfileController::class, 'updateProfile'])->name('perfil.update');
+// Route::post('/perfil/imagen/actualizar', [ProfileController::class, 'updateImage'])->name('perfil.updateImage');
 
 //Rutas del test de Tipos de aprendizajes
 use App\Http\Controllers\TestController;
@@ -25,14 +44,14 @@ Route::get('/tests', [TestController::class, 'index'])->name('listaTests.aplicac
 Route::get('/listaTests', [TestController::class, 'index'])->name('listaTests.aplicacionTest');
 
 
-//Rutas para CALENDARIOS
+//Rutas para la vista CALENDARIOS
 use App\Http\Controllers\CalendarioController;
 // Ruta para la vista principal del calendario
 Route::get('/calendario', [CalendarioController::class, 'index'])->name('calendario.calendarioEventos');
 // Ruta para la vista del calendario
 Route::get('/calendario/eventos', [CalendarioController::class, 'eventos'])->name('calendario.cEventos');
 
-
+// Ruta para el Fullcalendar
 use App\Http\Controllers\FullCalendarController;
 Route::controller(FullCalendarController::class)->group(function(){
     Route::get('calendario', 'index')->name('calendario.index');    
@@ -57,8 +76,6 @@ Route::delete('/destroy/{noteId}', [NotasController::class, 'destroy'])->name('d
 //Ruta para la lista de grupos
 use App\Http\Controllers\GruposController;
 Route::get('/grupos', [GruposController::class, 'GruposL'])->name('pacientes.grupos');
-
-
 
 
 // Pacientes

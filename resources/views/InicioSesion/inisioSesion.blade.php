@@ -25,7 +25,7 @@
           <div class="card-body text-center">
             <h1 class="h1 mb-4">Plataforma Académica ITSH</h1>
 
-            <form>
+            {{-- <form>
               <div class="mb-3">
                 <label for="usuario" class="form-label">Usuario</label>
                 <input type="text" class="form-control text-center" id="usuario" placeholder="Escriba su número de control">
@@ -35,10 +35,33 @@
                 <input type="password" name="password" class="form-control text-center" id="password" placeholder="********">
               </div>
               <a href="{{route('Inicio.home')}}" type="submit" class="btn btn-success">Entrar</a>
+            </form> --}}
+            <form action="{{ route('login') }}" method="POST">
+              @csrf
+              <div class="mb-3">
+                <label for="usuario" class="form-label">Usuario</label>
+                <input type="text" class="form-control text-center" id="usuario" name="email" placeholder="Escriba su correo electrónico" required>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control text-center" id="password" name="password" placeholder="********" required>
+              </div>
+              <button type="submit" class="btn btn-success">Entrar</button>
             </form>
+            @if ($errors->any())
+            <div class="alert alert-danger">
+              <ul>
+                @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                @endforeach
+              </ul>
+            </div>
+            @endif
+
             <div class="mt-3">
               <a href="#" class="text-muted">Olvidé mi contraseña</a>
             </div>
+            
           </div>
         </div>
         <div class="text-center mt-4 logosFooter">
