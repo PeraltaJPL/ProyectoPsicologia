@@ -20,7 +20,7 @@
     <div class="container-fluid">
       <span class="navbar-brand mb-0 h1">Calendario de Eventos</span>
       <span class="navbar-text text-white">
-        <a href="#" class="links_Listas">
+        <a href="{{ route('perfil.perfil') }}" class="links_Listas">
           {{ $user->username ?? $user->name ?? 'Usuario' }}
         </a>
       </span>
