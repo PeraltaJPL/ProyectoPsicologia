@@ -22,6 +22,7 @@
             </span>
         </div>
     </nav>
+    <div class="container p-5">
     <h1>Resultados del Test</h1>
     <canvas id="learningStylesChart"></canvas>
     <script>
@@ -44,5 +45,6 @@
             }
         });
     </script>
+    </div>
 </body>
 </html>

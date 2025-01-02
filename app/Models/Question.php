@@ -9,25 +9,5 @@ class Question extends Model
 {
     use HasFactory;
 
-    protected $table = 'questions';
-    protected $primaryKey = 'questionId';
-    public $timestamps = true;
-
-    protected $fillable = [
-        'testId',
-        'questionText',
-        'type'
-    ];
-
-    // Relación con el test
-    public function test()
-    {
-        return $this->belongsTo(Test::class, 'testId');
-    }
-
-    // Relación con opciones
-    public function options()
-    {
-        return $this->hasMany(Option::class, 'questionId');
-    }
+    protected $fillable = ['test_result_id', 'question_number', 'score'];
 }

@@ -52,7 +52,7 @@ class TestController extends Controller
 
         $answers = [];
         for ($i = 1; $i <= 24; $i++) {
-            $answers[$i] = $request->input("answers.{$i}");
+            $answers[$i] = $request->input("question{$i}");
         }
 
         $visualQuestions = [1, 3, 6, 9, 10, 11, 14];
@@ -73,6 +73,31 @@ class TestController extends Controller
             'kinesthetic_score' => $kinestheticScore,
         ]);
 
+        $testResult = TestResult::create([
+            'patient_name' => $request->input('patient_name'),
+            'career' => $request->input('career'),
+            'date' => $request->input('date'),
+            'location' => $request->input('location'),
+            'visual_score' => $visualScore,
+            'auditory_score' => $auditoryScore,
+            'kinesthetic_score' => $kinestheticScore,
+        ]);
+    
+        // Verifica que $testResult esté definido antes de usarlo
+        if ($testResult) {
+            // Guardar las respuestas individuales
+            foreach ($answers as $questionId => $score) {
+                Question::create([
+                    'test_result_id' => $testResult->id,
+                    'question_number' => $questionId,
+                    'score' => $score,
+                ]);
+            }
+        } else {
+            // Manejar el caso donde $testResult no se crea correctamente
+            return back()->withErrors(['error' => 'Error al guardar el resultado del test.']);
+        }
+        
         return view('listaTests.TestTiposDeAprendizaje.results', compact('visualScore', 'auditoryScore', 'kinestheticScore'));
 
     }

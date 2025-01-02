@@ -6,21 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateQuestionsTable extends Migration
 {
-    public function up(): void
+    public function up()
     {
         Schema::create('questions', function (Blueprint $table) {
-            $table->bigIncrements('questionId');
-            $table->unsignedBigInteger('testId'); // Relación con la tabla tests
-            $table->text('question_text'); // Texto de la pregunta
-            $table->enum('type', ['open', 'multiple_choice'])->default('open'); // Tipo de pregunta
+            $table->id();
+            $table->foreignId('test_result_id')->constrained()->onDelete('cascade');
+            $table->integer('question_number');
+            $table->integer('score');
             $table->timestamps();
-
-            // Llave foránea
-            $table->foreign('testId')->references('testId')->on('tests')->onDelete('cascade');
         });
     }
 
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('questions');
     }
