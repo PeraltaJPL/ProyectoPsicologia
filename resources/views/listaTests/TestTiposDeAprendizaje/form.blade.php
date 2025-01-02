@@ -50,18 +50,20 @@
         </div>
         <!-- Preguntas -->
         <h2>Preguntas</h2>
-        @for ($i = 1; $i <= 24; $i++)
-            <div class="mb-3">
-                <label for="question{{ $i }}" class="form-label">Pregunta {{ $i }}</label>
-                <select name="question{{ $i }}" id="question{{ $i }}" class="form-select" required>
-                    <option value="1">Nunca</option>
-                    <option value="2">Raramente</option>
-                    <option value="3">Ocasionalmente</option>
-                    <option value="4">Usualmente</option>
-                    <option value="5">Siempre</option>
-                </select>
-            </div>
-        @endfor
+        @foreach ($questionsText as $number => $text)
+          <div class="mb-3">
+            <label for="question{{ $number }}" class="form-label">
+              Pregunta {{ $number }}: {{ $text }}
+            </label>
+            <select name="question{{ $number }}" id="question{{ $number }}" class="form-select" required>
+              <option value="1">Nunca</option>
+              <option value="2">Raramente</option>
+              <option value="3">Ocasionalmente</option>
+              <option value="4">Usualmente</option>
+              <option value="5">Siempre</option>
+            </select>
+          </div>
+        @endforeach
         <button type="submit" class="btn btn-primary">Enviar</button>
       </form>
     </div>

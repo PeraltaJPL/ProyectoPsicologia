@@ -24,6 +24,32 @@
     </nav>
     <div class="container p-5">
     <h1>Resultados del Test</h1>
+    <p><strong>Nombre del paciente:</strong> {{ $testResult->patient_name }}</p>
+    <p><strong>Carrera:</strong> {{ $testResult->career }}</p>
+    <p><strong>Fecha:</strong> {{ $testResult->date }}</p>
+    <p><strong>Ubicación:</strong> {{ $testResult->location }}</p>
+
+    <h2>Respuestas:</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Pregunta</th>
+                <th>Respuesta</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($answers as $questionNumber => $answer)
+            <tr>
+                <td>{{ $questionNumber }}</td>
+                <td>{{ $questionsText[$questionNumber] }}</td>
+                <td>{{ $answer }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+
+    <h2>Estilos de Aprendizaje</h2>
     <canvas id="learningStylesChart"></canvas>
     <script>
         const ctx = document.getElementById('learningStylesChart').getContext('2d');
@@ -45,6 +71,27 @@
             }
         });
     </script>
+    {{-- <canvas id="learningStylesChart"></canvas>
+    <script>
+        const ctx = document.getElementById('learningStylesChart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Visual', 'Auditivo', 'Kinestésico'],
+                datasets: [{
+                    label: 'Puntajes',
+                    data: [{{ $visualScore }}, {{ $auditoryScore }}, {{ $kinestheticScore }}],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                },
+            }
+        });
+    </script> --}}
     </div>
 </body>
 </html>

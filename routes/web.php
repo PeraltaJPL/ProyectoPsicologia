@@ -33,6 +33,7 @@ Route::get('/tests', [TestController::class, 'showForm'])->name('tests.form');
 Route::post('/tests/submit', [TestController::class, 'submitTest'])->name('tests.submit');
 Route::get('/tests/results/{id}', [TestController::class, 'showResults'])->name('tests.results');
 Route::post('/tests/store', [TestController::class, 'submitTest'])->name('tests.store');
+Route::get('/test/create', [TestController::class, 'create'])->name('tests.create');
 
 
 //Rutas para la vista CALENDARIOS
