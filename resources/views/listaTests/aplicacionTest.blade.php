@@ -72,8 +72,11 @@
                 <img src="" alt="" class="mb-3">
                 <h5 class="card-title">Estilos de Aprendizaje</h5>
                 {{-- <h5 class="card-title">{{ $test->name }}</h5> --}}
-                <p>Descripción.</p>
-                <a href="{{route('tests.show', 0)}}" class="btn btn-info">Continuar</a>
+                <p>Descubre el tipo de Aprendizaje que más te define.</p>
+                {{-- <a href="{{route('tests.show', 0)}}" class="btn btn-info">Continuar</a> --}}
+                <a href="{{ route('tests.form') }}" class="btn btn-info">Hacer Test</a>
+                {{-- <a href="{{ route('tests.results', ['id' => $testId]) }}" class="btn btn-success">Ver Resultados</a> --}}
+
                 {{-- <a href="{{ route('tests.show', $test->testId) }}" class="btn btn-info">Continuar</a> --}}
               </div>
             </div>
@@ -113,16 +116,6 @@
             </div>
           </div>
 
-          <div class="col-md-5 py-2">
-            <div class="card text-center shadow-lg">
-              <div class="card-body">
-                <img src="" alt="" class="mb-3">
-                <h5 class="card-title">Test 5</h5>
-                <p>Descripción.</p>
-                <a href="#" class="btn btn-info">Continuar</a>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

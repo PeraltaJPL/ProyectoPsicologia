@@ -3,46 +3,97 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\TestResult;
 use App\Models\Test;
 use App\Models\Question;
 
 class TestController extends Controller
 {
-    public function index()
+    public function showForm()
     {
-        $tests = Test::all(); // Obtiene todos los tests
-        // dd($tests); // Verifica que los datos se obtienen correctamente
-        return view('listaTests.aplicacionTest', compact('tests'));
+        return view('listaTests.TestTiposDeAprendizaje.form');
+
     }
 
-    // Muestra el test en la vista
-    public function show($id)
+    public function submitTest(Request $request)
     {
-        // Encuentra el test por ID con preguntas y opciones
-        $test = Test::with('questions.options')->findOrFail($id);
+        $request->validate([
+            'patient_name' => 'required|string|max:255',
+            'career' => 'required|string|max:255',
+            'date' => 'required|date',
+            'location' => 'required|string|max:255',
+            // 'answers.*' => 'required|integer|min:1|max:5',
+            'question1' => 'required|integer|min:1|max:5',
+            'question2' => 'required|integer|min:1|max:5',
+            'question3' => 'required|integer|min:1|max:5',
+            'question4' => 'required|integer|min:1|max:5',
+            'question5' => 'required|integer|min:1|max:5',
+            'question6' => 'required|integer|min:1|max:5',
+            'question7' => 'required|integer|min:1|max:5',
+            'question8' => 'required|integer|min:1|max:5',
+            'question9' => 'required|integer|min:1|max:5',
+            'question10' => 'required|integer|min:1|max:5',
+            'question11' => 'required|integer|min:1|max:5',
+            'question12' => 'required|integer|min:1|max:5',
+            'question13' => 'required|integer|min:1|max:5',
+            'question14' => 'required|integer|min:1|max:5',
+            'question15' => 'required|integer|min:1|max:5',
+            'question16' => 'required|integer|min:1|max:5',
+            'question17' => 'required|integer|min:1|max:5',
+            'question18' => 'required|integer|min:1|max:5',
+            'question19' => 'required|integer|min:1|max:5',
+            'question20' => 'required|integer|min:1|max:5',
+            'question21' => 'required|integer|min:1|max:5',
+            'question22' => 'required|integer|min:1|max:5',
+            'question23' => 'required|integer|min:1|max:5',
+            'question24' => 'required|integer|min:1|max:5',
 
-        // Retorna la vista con los datos del test
-        return view('tests.show', compact('test'));
-    }
+        ]);
 
-    // Procesa las respuestas enviadas por el usuario
-    public function submit(Request $request, $id)
-    {
-        $test = Test::findOrFail($id);
-        $answers = $request->input('answers'); // Respuestas enviadas
-
-        // Validación simple (asegúrate de ajustar según los requisitos)
-        foreach ($test->questions as $question) {
-            if (!isset($answers[$question->questionId])) {
-                return back()->with('error', 'Responde todas las preguntas.');
-            }
+        $answers = [];
+        for ($i = 1; $i <= 24; $i++) {
+            $answers[$i] = $request->input("answers.{$i}");
         }
 
-        // Aquí puedes almacenar las respuestas o procesarlas
-        // Por ahora solo retornaremos las respuestas al usuario
-        return view('tests.results', [
-            'test' => $test,
-            'answers' => $answers
+        $visualQuestions = [1, 3, 6, 9, 10, 11, 14];
+        $auditoryQuestions = [2, 5, 12, 15, 17, 21, 23];
+        $kinestheticQuestions = [4, 7, 8, 13, 19, 22, 24];
+
+        $visualScore = array_sum(array_intersect_key($answers, array_flip($visualQuestions)));
+        $auditoryScore = array_sum(array_intersect_key($answers, array_flip($auditoryQuestions)));
+        $kinestheticScore = array_sum(array_intersect_key($answers, array_flip($kinestheticQuestions)));
+
+        TestResult::create([
+            'patient_name' => $request->input('patient_name'),
+            'career' => $request->input('career'),
+            'date' => $request->input('date'),
+            'location' => $request->input('location'),
+            'visual_score' => $visualScore,
+            'auditory_score' => $auditoryScore,
+            'kinesthetic_score' => $kinestheticScore,
         ]);
+
+        return view('listaTests.TestTiposDeAprendizaje.results', compact('visualScore', 'auditoryScore', 'kinestheticScore'));
+
     }
+
+public function store(Request $request)
+{
+    // Procesar y guardar los datos del formulario en la base de datos
+    $testResult = new TestResult();
+    $testResult->patient_name = $request->input('patient_name');
+    $testResult->career = $request->input('career');
+    $testResult->date = $request->input('date');
+    $testResult->location = $request->input('location');
+    // Aquí puedes agregar los puntajes calculados y guardarlos si lo deseas
+    // $testResult->visual_score = $visualScore;
+    // $testResult->auditory_score = $auditoryScore;
+    // $testResult->kinesthetic_score = $kinestheticScore;
+
+    $testResult->save();
+
+    return redirect()->route('tests.results', ['id' => $testResult->id]);
+}
+
+
 }

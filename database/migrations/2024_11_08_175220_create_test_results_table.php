@@ -6,22 +6,24 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTestResultsTable extends Migration
 {
-    public function up(): void
+    public function up()
     {
         Schema::create('test_results', function (Blueprint $table) {
-            $table->bigIncrements('resultId');
-            $table->unsignedBigInteger('patientId');
-            $table->foreign('patientId')->references('patientId')->on('patients');
-            $table->unsignedBigInteger('testId'); 
-            $table->foreign('testId')->references('testId')->on('tests');
-            $table->text('result')->nullable();
-            $table->date('testDate');
+            $table->id();
+            $table->string('patient_name');
+            $table->string('career');
+            $table->date('date');
+            $table->string('location');
+            $table->integer('visual_score');
+            $table->integer('auditory_score');
+            $table->integer('kinesthetic_score');
+            $table->timestamps();
         });
-        
     }
 
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('test_results');
     }
+
 };

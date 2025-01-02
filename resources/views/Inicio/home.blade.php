@@ -86,15 +86,12 @@
                   <thead class="bg-primary bg-opacity-75">
                     <tr>
                       <th>Título</th>
-                      {{-- <th>Descripción</th> --}}
-                      {{-- <th>Hora</th> --}}
                     </tr>
                   </thead>
                   <tbody>
                     @forelse ($todayEvents as $event)
                     <tr>
                       <td>{{ $event->title }}</td>
-                      {{-- <td>{{ \Carbon\Carbon::parse($event->start)->format('H:i') }}</td> --}}
                     </tr>
                     @empty
                     <tr>

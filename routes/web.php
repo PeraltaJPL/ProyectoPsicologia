@@ -29,10 +29,10 @@ Route::get('/perfil', [ProfileController::class, 'showProfile'])->name('perfil.p
 
 //Rutas del test de Tipos de aprendizajes
 use App\Http\Controllers\TestController;
-Route::get('/tests/{id}', [TestController::class, 'show'])->name('tests.show'); // Mostrar el test
-Route::post('/tests/{id}', [TestController::class, 'submit'])->name('tests.submit'); // Enviar respuestas
-Route::get('/tests', [TestController::class, 'index'])->name('listaTests.aplicacionTest');
-Route::get('/listaTests', [TestController::class, 'index'])->name('listaTests.aplicacionTest');
+Route::get('/tests', [TestController::class, 'showForm'])->name('tests.form');
+Route::post('/tests/submit', [TestController::class, 'submitTest'])->name('tests.submit');
+Route::get('/tests/results/{id}', [TestController::class, 'showResults'])->name('tests.results');
+Route::post('/tests/store', [TestController::class, 'submitTest'])->name('tests.store');
 
 
 //Rutas para la vista CALENDARIOS
