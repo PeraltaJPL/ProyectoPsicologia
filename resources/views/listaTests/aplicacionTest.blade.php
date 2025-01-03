@@ -28,7 +28,7 @@
     <div class="row">
 
       <!-- Sidebar -->
-      <div id="sidebar" class="sidebar sidebar-collapsed col-md-2 bg-dark vh-100">
+      <div id="sidebar" class="sidebar sidebar-collapsed col-md-2 bg-dark">
         <ul class="nav flex-column text-white">
           <li class="nav-item p-3">
             <a href="{{route('Inicio.home')}}" class="links_Listas">
@@ -65,30 +65,31 @@
       <!-- Las listas de los diferentes tests-->
       <div class="col-md-10 bg-light p-4">
         <div class="row justify-content-center">
-          {{-- @foreach ($tests as $test) --}}
           <div class="col-md-5 py-2">
             <div class="card text-center shadow-lg">
               <div class="card-body">
                 <img src="" alt="" class="mb-3">
                 <h5 class="card-title">Estilos de Aprendizaje</h5>
-                {{-- <h5 class="card-title">{{ $test->name }}</h5> --}}
+                <br>
+                <img src="{{asset('assets/images/Logo-Aprendizaje.png')}}" alt="Test Estilos de Aprendizaje" class="img-fluid" width="200em" height="70em">
+                <br>
+                <br>
+                <br>
                 <p>Descubre el tipo de Aprendizaje que más te define.</p>
-                {{-- <a href="{{route('tests.show', 0)}}" class="btn btn-info">Continuar</a> --}}
                 <a href="{{ route('tests.form') }}" class="btn btn-info">Hacer Test</a>
-                {{-- <a href="{{ route('tests.results', ['id' => $testId]) }}" class="btn btn-success">Ver Resultados</a> --}}
-
-                {{-- <a href="{{ route('tests.show', $test->testId) }}" class="btn btn-info">Continuar</a> --}}
               </div>
             </div>
           </div>
-          {{-- @endforeach --}}
 
           <div class="col-md-5 py-2">
             <div class="card text-center shadow-lg">
               <div class="card-body">
                 <img src="" alt="" class="mb-3">
-                <h5 class="card-title">Test 2</h5>
-                <p>Descripción.</p>
+                <h5 class="card-title">⁠Autoestima</h5>
+                <img src="{{asset('assets/images/Logo-Autoestima.png')}}" alt="Test de Autoestima" class="img-fluid" width="200em" height="70em">
+                <br>
+                
+                <p>Este test te ayuda a evaluar tu propia valoración. Explora tus fortalezas, debilidades y cómo te sientes contigo mismo. Es como un espejo que refleja tu imagen interior.</p>
                 <a href="#" class="btn btn-info">Continuar</a>
               </div>
             </div>
@@ -98,8 +99,11 @@
             <div class="card text-center shadow-lg">
               <div class="card-body">
                 <img src="" alt="" class="mb-3">
-                <h5 class="card-title">Test 3</h5>
-                <p>Descripción.</p>
+                <h5 class="card-title">Vocacional</h5>
+                <img src="{{asset('assets/images/Logo-Vocacional.jpeg')}}" alt="Test Vocacional" class="img-fluid" width="200em" height="70em">
+                <br>
+                <br>
+                <p>Descubre las carreras y profesiones que mejor se adaptan a tus intereses, habilidades y personalidad.</p>
                 <a href="#" class="btn btn-info">Continuar</a>
               </div>
             </div>
@@ -109,8 +113,10 @@
             <div class="card text-center shadow-lg">
               <div class="card-body">
                 <img src="" alt="" class="mb-3">
-                <h5 class="card-title">Test 4</h5>
-                <p>Descripción.</p>
+                <h5 class="card-title">Psicometrico</h5>
+                <img src="{{asset('assets/images/Logo-Psicometrico.png')}}" alt="Test Psicometrico" class="img-fluid" width="200em" height="70em">
+                <br>
+                <p>Este test evalúa tus capacidades cognitivas, como la memoria, la atención y la resolución de problemas..</p>
                 <a href="#" class="btn btn-info">Continuar</a>
               </div>
             </div>

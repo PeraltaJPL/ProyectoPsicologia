@@ -49,6 +49,16 @@
             <input type="text" name="location" id="location" class="form-control" required>
         </div>
         <!-- Preguntas -->
+        <h2>Descripción: </h2>
+        <h6>Este inventario es para ayudar a descubrir su manera preferida de aprender. Cada persona tiene su manera preferida de aprender. Reconocer sus preferencias le ayudará a comprender sus fuerzas en cualquier situación de aprendizaje.<br>
+          Por favor, responda verdaderamente a cada pregunta. Responda según lo que hace actualmente, no según lo que piense que sea la respuesta correcta.
+          Use la escala siguiente para responder a cada pregunta:<br>
+          1 = Nunca<br>
+          2 = Raramente<br>
+          3 = Ocasionalmente<br>
+          4 = Usualmente<br>
+          5 = Siempre<br>
+          </h6>
         <h2>Preguntas</h2>
         @foreach ($questionsText as $number => $text)
           <div class="mb-3">

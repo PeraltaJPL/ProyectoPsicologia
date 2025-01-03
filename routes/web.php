@@ -22,10 +22,6 @@ Route::get('/listaTests', [testsController::class, 'lTests'])->name('listaTests.
 //Ruta para la vista del Perfil
 use App\Http\Controllers\ProfileController;
 Route::get('/perfil', [ProfileController::class, 'showProfile'])->name('perfil.perfil');
-// Route::get('/perfil/editar', [ProfileController::class, 'editProfile'])->name('perfil.edit');
-// Route::get('/perfil/imagen', [ProfileController::class, 'changeImage'])->name('perfil.image');
-// Route::post('/perfil/actualizar', [ProfileController::class, 'updateProfile'])->name('perfil.update');
-// Route::post('/perfil/imagen/actualizar', [ProfileController::class, 'updateImage'])->name('perfil.updateImage');
 
 //Rutas del test de Tipos de aprendizajes
 use App\Http\Controllers\TestController;

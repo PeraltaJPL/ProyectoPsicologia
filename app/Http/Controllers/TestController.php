@@ -163,10 +163,6 @@ class TestController extends Controller
         $testResult->career = $request->input('career');
         $testResult->date = $request->input('date');
         $testResult->location = $request->input('location');
-        // Aquí puedes agregar los puntajes calculados y guardarlos si lo deseas
-        // $testResult->visual_score = $visualScore;
-        // $testResult->auditory_score = $auditoryScore;
-        // $testResult->kinesthetic_score = $kinestheticScore;
 
         $testResult->save();
 
